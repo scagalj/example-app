@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Log;
 class ApartmentReviewsController extends BaseController {
     //put your code here
     
-    public function getAll() {
+    public static function getAll() {
         $reviews = ApartmentReviews::inRandomOrder()->get();
 
         return $reviews;

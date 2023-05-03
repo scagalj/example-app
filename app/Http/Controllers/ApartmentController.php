@@ -107,7 +107,7 @@ class ApartmentController extends BaseController {
         return Apartment::all();
     }
 
-    public function getMainImage($apartment) {
+    public static function getMainImage($apartment) {
         return $apartment->images()->where('mainimage', true)->first();
     }
 

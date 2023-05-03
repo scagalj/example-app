@@ -26,7 +26,7 @@ class LangController extends Controller
         return redirect()->back();
     }
     
-    public function updateLanguage($lang){
+    public static function updateLanguage($lang){
         App::setLocale($lang);
         session()->put('locale', $lang);
     }
@@ -40,7 +40,7 @@ class LangController extends Controller
         return $lang;
     }
     
-    public function getDefaultLanguage(){
+    public static function getDefaultLanguage(){
         return self::$defaultLanguage;
     }
     

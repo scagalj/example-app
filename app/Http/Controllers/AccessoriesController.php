@@ -20,7 +20,7 @@ use App\Models\Room;
 class AccessoriesController extends BaseController {
     //put your code here
     
-     public function getAllAccessories($room_id) {
+     public static function getAllAccessories($room_id) {
          
          $room = Room::find($room_id);
          $allRoomAccessories = $room->roomaccessories()->get();

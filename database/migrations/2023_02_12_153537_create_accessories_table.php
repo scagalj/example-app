@@ -19,7 +19,7 @@ class CreateAccessoriesTable extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('iconName')->nullable();
-            $table->mediumText('iconPath')->nullable();
+            $table->longText('iconPath')->nullable();
             $table->string('accessoriesType');
             $table->boolean('request')->default(0);
             $table->boolean('popular')->default(0);

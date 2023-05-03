@@ -20,9 +20,9 @@ class UpdateHouseTableWithRule extends Migration
             $table->string('quietHoursRule')->nullable();
             $table->string('extraBedPolicy')->nullable();
             $table->string('damagePolicy')->nullable();
-            $table->boolean('smokingAllowed')->default('false');
-            $table->boolean('partiesAllowed')->default('false');
-            $table->boolean('petsAllowed')->default('false');
+            $table->boolean('smokingAllowed')->default(0);
+            $table->boolean('partiesAllowed')->default(0);
+            $table->boolean('petsAllowed')->default(0);
         });
     }
 

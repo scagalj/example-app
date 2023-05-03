@@ -103,7 +103,7 @@ class ApartmentController extends BaseController {
         return Apartment::find($apartmentId);
     }
 
-    public function getAll() {
+    public static function getAll() {
         return Apartment::all();
     }
 
@@ -111,15 +111,15 @@ class ApartmentController extends BaseController {
         return $apartment->images()->where('mainimage', true)->first();
     }
 
-    public function getOtherImages($apartment) {
+    public static function getOtherImages($apartment) {
         return $apartment->images()->where('mainimage', false)->get();
     }
 
-    public function getImagesByRange($apartment, $indexFrom, $imageCount = 2) {
+    public static function getImagesByRange($apartment, $indexFrom, $imageCount = 2) {
         return $apartment->images()->where('mainimage', false)->get()->slice($indexFrom, $imageCount);
     }
 
-    public function getAllImagesToDisplay($apartment) {
+    public static function getAllImagesToDisplay($apartment) {
         $c = collect();
         $mainImages = self::getMainImage($apartment);
         $c->add($mainImages);
@@ -127,7 +127,7 @@ class ApartmentController extends BaseController {
         return $c->concat($otherImages);
     }
 
-    public function getNumberOfGuests($apartment) {
+    public static function getNumberOfGuests($apartment) {
         $roomsWithBeds = self::getAllRoomsWithBed($apartment);
         $guestCounter = 0;
         foreach ($roomsWithBeds as $roomsWithBed) {
@@ -136,7 +136,7 @@ class ApartmentController extends BaseController {
         return $guestCounter;
     }
 
-    public function getNumberOfBedrooms($apartment) {
+    public static function getNumberOfBedrooms($apartment) {
         $numberOfBedrooms = 0;
         $rooms = $apartment->room()->get();
         foreach ($rooms as $room) {
@@ -147,7 +147,7 @@ class ApartmentController extends BaseController {
         return $numberOfBedrooms;
     }
 
-    public function getNumberOfBeds($apartment) {
+    public static function getNumberOfBeds($apartment) {
         $numberOfBeds = 0;
         $rooms = $apartment->room()->get();
         foreach ($rooms as $room) {
@@ -159,7 +159,7 @@ class ApartmentController extends BaseController {
         return $numberOfBeds;
     }
 
-    public function getNumberOfBathrooms($apartment) {
+    public static function getNumberOfBathrooms($apartment) {
         $numberOfBathrooms = 0;
         $rooms = $apartment->room()->get();
         foreach ($rooms as $room) {
@@ -168,7 +168,7 @@ class ApartmentController extends BaseController {
         return $numberOfBathrooms;
     }
 
-    public function getAllRoomsWithBed($apartment) {
+    public static function getAllRoomsWithBed($apartment) {
         $allrooms = $apartment->room()->get();
         $c = collect();
         foreach ($allrooms as $room) {
@@ -179,7 +179,7 @@ class ApartmentController extends BaseController {
         return $c;
     }
 
-    public function getAllAccessoriesWithPopularFirst($apartment) {
+    public static function getAllAccessoriesWithPopularFirst($apartment) {
         if (empty($apartment->room())) {
             return null;
         }
@@ -205,7 +205,7 @@ class ApartmentController extends BaseController {
         return $popularAccessories->concat($otherAccessories);
     }
 
-    public function getAllAccessories($apartment) {
+    public static function getAllAccessories($apartment) {
         $allAccessories = $apartment->room()->first()->roomaccessories()->get();
         return $allAccessories;
     }

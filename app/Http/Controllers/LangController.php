@@ -44,11 +44,11 @@ class LangController extends Controller
         return self::$defaultLanguage;
     }
     
-    public function getAllLanguages(){
+    public static function getAllLanguages(){
         return self::$languages;
     }
 
-    public function getLanguageField($request, $fieldName){
+    public static function getLanguageField($request, $fieldName){
         $translatableField = new TranslatableField();
         
         $languages = LangController::getAllLanguages();
@@ -63,12 +63,12 @@ class LangController extends Controller
         return $translatableField;
     }
     
-    public function convertLanguageFieldToJson($languageField){
+    public static function convertLanguageFieldToJson($languageField){
         $result = json_encode($languageField->getValues());
         return $result;
     }
     
-    public function convertJsonToLanguageField($jsonField){
+    public static function convertJsonToLanguageField($jsonField){
         $languageField = new TranslatableField();
         if (is_null($jsonField)) {
             return $languageField;
@@ -82,7 +82,7 @@ class LangController extends Controller
         return $languageField;
     }
     
-    public function getLanguageFieldAsJson($request, $fieldName){
+    public static function getLanguageFieldAsJson($request, $fieldName){
         $languageField = LangController::getLanguageField($request, $fieldName);
         $languageFieldAsJson = LangController::convertLanguageFieldToJson($languageField);
         return $languageFieldAsJson;

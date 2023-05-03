@@ -31,7 +31,7 @@ class LangController extends Controller
         session()->put('locale', $lang);
     }
     
-    public function getLanguage() {
+    public static function getLanguage() {
         $lang = session()->get('locale');
         if (is_null($lang)) {
             self::updateLanguage(self::getDefaultLanguage());

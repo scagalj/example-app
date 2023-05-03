@@ -99,7 +99,7 @@ class ApartmentController extends BaseController {
         }
     }
     
-    public function getById($apartmentId){
+    public static function getById($apartmentId){
         return Apartment::find($apartmentId);
     }
 

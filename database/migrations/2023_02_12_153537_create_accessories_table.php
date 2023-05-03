@@ -21,8 +21,8 @@ class CreateAccessoriesTable extends Migration
             $table->string('iconName')->nullable();
             $table->string('iconPath')->nullable();
             $table->string('accessoriesType');
-            $table->boolean('request')->default('false');
-            $table->boolean('popular')->default('false');
+            $table->boolean('request');
+            $table->boolean('popular');
             $table->timestamps();
         });
     }

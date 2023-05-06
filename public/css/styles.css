@@ -136,8 +136,8 @@ body{
 }
 
 .apartmentNameWelcome{
-    font-size: 25pt;
-    font-weight: 300;
+    font-size: 42pt;
+    font-weight: 400;
 }
 
 .welcomeTitle p{
@@ -580,6 +580,10 @@ body{
 /*-----foooter--------*/
 
 @media (max-width: 767px){
+
+    .apartmentNameWelcome{
+        font-size: 22pt;
+    }
 
     .footer-wrapper{
         text-align: center;

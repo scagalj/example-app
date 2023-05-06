@@ -80,7 +80,7 @@ return [
     'QuitHoursRule' => 'Los huéspedes deben guardar silencio entre las 10:00 PM y las 7:00 AM.',
     'ExtraBedRule' => 'Todas las camas supletorias están sujetas a disponibilidad.',
     'SmokingIsAllowd' => 'Se permite fumar en el apartamento.',
-    'SmokingIsNotAllowd' => 'No se permite fumar en el apartamento.',
+    'SmokingIsNotAllowd' => 'Se permite fumar en el balcón..',
     'PartiesAreAllowed' => 'Se permiten fiestas en el apartamento.',
     'PartiesAreNotAllowed' => 'No se permiten fiestas en el apartamento.',
     'Studio apartment 1' => 'Apartamento estudio 1',

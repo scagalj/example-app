@@ -80,7 +80,7 @@ return [
     'QuitHoursRule' => 'Gäste müssen zwischen 22:00 Uhr und 7:00 Uhr ruhig sein.',
     'ExtraBedRule' => 'Alle Zustellbetten unterliegen der Verfügbarkeit.',
     'SmokingIsAllowd' => 'Rauchen ist in der Wohnung erlaubt.',
-    'SmokingIsNotAllowd' => 'Rauchen ist in der Wohnung nicht erlaubt.',
+    'SmokingIsNotAllowd' => 'Rauchen ist auf dem Balkon erlaubt.',
     'PartiesAreAllowed' => 'Partys sind in der Wohnung erlaubt.',
     'PartiesAreNotAllowed' => 'Partys sind in der Wohnung nicht erlaubt.',
     'Studio apartment 1' => 'Studio-Apartment 1',

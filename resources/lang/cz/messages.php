@@ -81,7 +81,7 @@ return [
     'QuitHoursRule' => 'Hosté musí být tiší mezi 22:00 a 7:00 hod.',
     'ExtraBedRule' => 'Všechna přistýlka jsou k dispozici pouze na vyžádání.',
     'SmokingIsAllowd' => 'V apartmánu je povoleno kouření.',
-    'SmokingIsNotAllowd' => 'V apartmánu není povoleno kouření.',
+    'SmokingIsNotAllowd' => 'Kouření je povoleno na balkoně.',
     'PartiesAreAllowed' => 'Ve společenské místnosti je povoleno pořádání večírků.',
     'PartiesAreNotAllowed' => 'V apartmánu nejsou povoleny večírky.',
     'Studio apartment 1' => 'Studio apartmán 1',

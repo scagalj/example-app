@@ -80,7 +80,7 @@ return [
     'QuitHoursRule' => 'Les clients doivent être calmes entre 22h00 et 7h00.',
     'ExtraBedRule' => 'Tous les lits d\'appoint sont soumis à disponibilité.',
     'SmokingIsAllowd' => 'Il est autorisé de fumer dans l\'appartement.',
-    'SmokingIsNotAllowd' => 'Il est interdit de fumer dans l\'appartement.',
+    'SmokingIsNotAllowd' => 'Il est permis de fumer sur le balcon.',
     'PartiesAreAllowed' => 'Les fêtes sont autorisées dans l\'appartement.',
     'PartiesAreNotAllowed' => 'Les fêtes ne sont pas autorisées dans l\'appartement.',
     'Studio apartment 1' => 'Appartement studio 1',

@@ -81,7 +81,7 @@ return [
     'QuitHoursRule' => 'Goście powinni być cisi między 22:00 a 7:00.',
     'ExtraBedRule' => 'Wszystkie dodatkowe łóżka są uzależnione od dostępności.',
     'SmokingIsAllowd' => 'Palenie jest dozwolone w apartamencie.',
-    'SmokingIsNotAllowd' => 'Palenie jest zabronione w apartamencie.',
+    'SmokingIsNotAllowd' => 'Palenie dozwolone jest na balkonie.',
     'PartiesAreAllowed' => 'Imprezy są dozwolone w apartamencie.',
     'PartiesAreNotAllowed' => 'Imprezy są zabronione w apartamencie.',
     'Studio apartment 1' => 'Apartament typu studio 1',

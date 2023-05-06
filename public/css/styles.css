@@ -217,7 +217,7 @@ body{
     }
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 380px) {
   .headerLogo{
         width: 130px;
         margin-right: 0px;

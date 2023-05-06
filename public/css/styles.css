@@ -209,6 +209,23 @@ body{
     width: 100%;
 }
 
+
+@media only screen and (max-width: 600px) {
+  .headerLogo{
+        width: 180px;
+        margin-right: 0px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+  .headerLogo{
+        width: 150px;
+        margin-right: 0px;
+    }
+
+}
+
+
 #fullPageHeader{
     background-position: center;
     background-repeat: no-repeat;

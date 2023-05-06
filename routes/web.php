@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LangController;
 use App\Http\Controllers\ImageController;
-use Illuminate\Http\Request;
 use App\Models\Apartment;
 use App\Models\Room;
 use App\Models\House;
@@ -15,6 +13,7 @@ use App\Http\Controllers\BedController;
 use App\Http\Controllers\BathroomController;
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\BookingRequestController;
+ use App\Http\Controllers\LangController;
 
 /*
   |--------------------------------------------------------------------------
@@ -29,7 +28,12 @@ use App\Http\Controllers\BookingRequestController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    $lang = LangController::getLanguage();
+    $apartment1 = ApartmentController::getById(1);
+    $apartment2 = ApartmentController::getById(2);
+    $apartment3 = ApartmentController::getById(3);
+    $apartment4 = ApartmentController::getById(4);
+    return view('welcome', compact('lang', 'apartment1','apartment2','apartment3','apartment4'));
 })->name('welcome');
 
 
@@ -68,11 +72,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //---CONTACT FORM---
 
 Route::get('/contactus', function () {
-    return view('contactus');
+    $lang = LangController::getLanguage();
+    return view('contactus', compact('lang'));
 })->name('contactus');
 
 Route::get('/privacypolicy', function () {
-    return view('privacypolicy');
+    $lang = LangController::getLanguage();
+    return view('privacypolicy', compact('lang'));
 })->name('privacypolicy');
 
 Route::post('/contactus', [BookingRequestController::class, 'sendInformationRequest'])->name('contact.information.request');

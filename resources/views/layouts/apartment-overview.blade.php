@@ -1,11 +1,3 @@
-<?php
-
-use \App\Http\Controllers\ApartmentController;
-use App\Http\Controllers\LangController;
-
-$lang = LangController::getLanguage();
-?>
-
 @isset($apartment)
 
 <div class="p-4 col-lg-6 col-sm-12 col-12 mb-5 apartment-container">
@@ -15,7 +7,7 @@ $lang = LangController::getLanguage();
             <div class="apartment-detail-container">
                 <img src="
                 <?php
-                $mainImage = ApartmentController::getMainImage($apartment);
+                $mainImage = $apartment->getMainImage();
                 if(isset($mainImage)){
                     echo $apartment->getImagesPath() . $mainImage->filename;
                 }

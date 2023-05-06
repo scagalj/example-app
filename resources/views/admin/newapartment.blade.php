@@ -121,7 +121,7 @@ and open the template in the editor.
 
         <div class="entity-details">
             <?php
-            $otherImages = ApartmentController::getOtherImages($apartment);
+            $otherImages = $apartment->getOtherImages();
             ?>
             @foreach($otherImages as $image)
             <img src="{{$apartment->getImagesPath() . $image->filename}}" title="{{$image->description}}" alt="{{ $image->name }}" width="100" height="100" style="padding: 10px;">
@@ -137,7 +137,7 @@ and open the template in the editor.
         <br/>
         <br/>
         <?php
-        $mainImage = ApartmentController::getMainImage($apartment)
+        $mainImage = $apartment->getMainImage()
         ?>
         @isset($mainImage)
         <img src="{{$apartment->getImagesPath() . $mainImage->filename}}" title="{{$mainImage->description}}" alt="{{ $mainImage->name }}" width="100" height="100" style="padding: 10px;">

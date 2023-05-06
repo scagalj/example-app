@@ -1,10 +1,3 @@
-<?php
-
-use App\Http\Controllers\LangController;
-
-$lang = LangController::getLanguage()
-?>
-
 <div class="container-fluid header-navigation">
     <div class="container">
 

@@ -5,19 +5,6 @@
     </head>
     <body class="antialiased">
 
-        <?php
-
-        use \App\Http\Controllers\ApartmentController;
-        use App\Http\Controllers\LangController;
-        
-        $lang = LangController::getLanguage();
-        $apartment1 = ApartmentController::getById(1);
-        $apartment2 = ApartmentController::getById(2);
-        $apartment3 = ApartmentController::getById(3);
-        $apartment4 = ApartmentController::getById(4);
-        
-        ?>
-        
         @include('/layouts/navbar')
 
         <!---------------HEADER--------------------->
@@ -125,9 +112,6 @@
                 <!--<h2>Accommodation in Omiš</h2>-->
                 <!--</div>-->
                 <div class="row gx-5">
-                    @include('/layouts/apartment-overview',['apartment' => $apartment1])
-                    @include('/layouts/apartment-overview',['apartment' => $apartment1])
-                    @include('/layouts/apartment-overview',['apartment' => $apartment1])
                     @include('/layouts/apartment-overview',['apartment' => $apartment1])
                     @include('/layouts/apartment-overview',['apartment' => $apartment2])
                     @include('/layouts/apartment-overview',['apartment' => $apartment3])
@@ -278,23 +262,6 @@
         </div>
 
         <!--------------EXPLORE LIKE A LOCAL END-------------->
-
-        <!--<div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">-->
-        <!--            @if (Route::has('login'))
-                    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                        @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                        @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-        
-                        @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                        @endauth
-                    </div>
-                    @endif-->
-
-        <!--</div>-->
 
         @include('/layouts/footer')
 

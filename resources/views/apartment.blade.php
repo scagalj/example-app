@@ -8,7 +8,6 @@
         <?php
 
         use App\Http\Controllers\LangController;
-        use \App\Http\Controllers\ApartmentController;
         
         $lang = LangController::getLanguage();
         
@@ -45,10 +44,10 @@
 
 
             <?php
-            $mainImage = ApartmentController::getMainImage($apartment);
-            $firstRowImages = ApartmentController::getImagesByRange($apartment, 0, 2);
-            $secondRowImages = ApartmentController::getImagesByRange($apartment, 2, 2);
-            $allImages = ApartmentController::getAllImagesToDisplay($apartment);
+            $mainImage = $apartment->getMainImage();
+            $firstRowImages = $apartment->getImagesByRange(0, 2);
+            $secondRowImages = $apartment->getImagesByRange(2, 2);
+            $allImages = $apartment->getAllImagesToDisplay();
             $imagePath = $apartment->getImagesPath();
 //            echo $allImages;
             ?>
@@ -197,25 +196,14 @@
                         <div class="apartmentName">
                             <h2 class="f-w-6"> {{  __('messages.' . $apartment->name) }}</h2>
                         </div>
-                        <?php
-                        $numberOfGuests = ApartmentController::getNumberOfGuests($apartment);
-                        $numberOfBedrooms = ApartmentController::getNumberOfBedrooms($apartment);
-                        $numberOfBeds = ApartmentController::getNumberOfBeds($apartment);
-                        $numberOfBathrooms = ApartmentController::getNumberOfBathrooms($apartment);
-//                    echo '<br/>Gosti ' . $numberOfGuests;
-//                    echo '<br/>Spavace sobe ' . $numberOfBedrooms;
-//                    echo '<br/>Broj kreveta ' . $numberOfBeds;
-//                    echo '<br/>Broj kupaonica ' . $numberOfBathrooms;
-                        ?>
-
                         <div class="apartmentDetails">
-                            <span class="apartmentDetailsInfo">{{ $numberOfGuests }} {{ __('messages.Guests') }}</span>
+                            <span class="apartmentDetailsInfo">{{ $apartment->getNumberOfGuests() }} {{ __('messages.Guests') }}</span>
                             <span class="apartmentDetailsSpacer">&#x2022;</span>
-                            <span class="apartmentDetailsInfo">{{ $numberOfBedrooms }} {{ __('messages.Bedrooms') }}</span>
+                            <span class="apartmentDetailsInfo">{{ $apartment->getNumberOfBedrooms() }} {{ __('messages.Bedrooms') }}</span>
                             <span class="apartmentDetailsSpacer" >&#x2022;</span>
-                            <span class="apartmentDetailsInfo">{{ $numberOfBeds }} {{ __('messages.Beds') }}</span>
+                            <span class="apartmentDetailsInfo">{{ $apartment->getNumberOfBeds() }} {{ __('messages.Beds') }}</span>
                             <span class="apartmentDetailsSpacer" >&#x2022;</span>
-                            <span class="apartmentDetailsInfo">{{ $numberOfBathrooms }} {{ __('messages.Bathrooms') }}</span>
+                            <span class="apartmentDetailsInfo">{{ $apartment->getNumberOfBathrooms() }} {{ __('messages.Bathrooms') }}</span>
                         </div>
                     </div>
                     <!--<hr/>-->
@@ -234,7 +222,7 @@
                     @endisset
 
                     <?php
-//                    $roomsWithBed = ApartmentController::getAllRoomsWithBed($apartment);
+//                    $roomsWithBed = $apartment->getAllRoomsWithBed();
                     ?>
 
                     @isset($roomsWithBed)
@@ -257,8 +245,8 @@
                     @endisset
 
                     <?php
-                    $allRoomAccessories = ApartmentController::getAllAccessoriesWithPopularFirst($apartment);
-//                    $allRoomAccessories = ApartmentController::getAllAccessories($apartment);
+                    $allRoomAccessories = $apartment->getAllAccessoriesWithPopularFirst();
+//                    $allRoomAccessories = $apartment->getAllAccessories();
 //                    echo $allRoomAccessories;
                     ?>
 

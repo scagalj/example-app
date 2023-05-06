@@ -24,16 +24,16 @@
                     <span>{{ __('messages.Lisičina 2, 21310 Omiš, Croatia') }}</span>
                 </p>
                 <p class="footerContactDetail">
-                    <i class="fa fa-phone footerIcon" aria-hidden="true"></i>
-                    <span><a href="tel:+385911235696">+385911235696</a></span>
+                    <i class="fa fa-envelope-o footerIcon" aria-hidden="true"></i>
+                    <span><a href="mailto:apartmentsnature2@gmail.com">apartmentsnature2@gmail.com</a></span>
                 </p>
                 <p class="footerContactDetail">
                     <i class="fa fa-whatsapp footerIcon" aria-hidden="true"></i>
                     <span><a href="tel:+385911235696">+385911235696</a></span>
                 </p>
                 <p class="footerContactDetail">
-                    <i class="fa fa-envelope-o footerIcon" aria-hidden="true"></i>
-                    <span><a href="mailto:apartmentsnature2@gmail.com">apartmentsnature2@gmail.com</a></span>
+                    <i class="fa fa-phone footerIcon" aria-hidden="true"></i>
+                    <span><a href="tel:+385911235696">+385911235696</a></span>
                 </p>
             </div>
         </div>

@@ -85,7 +85,6 @@
             <h1 class="apartmentNameWelcome">{{ __('messages.ApartmentsNature') }}</h1>
             <p class="">
                 {{ __('messages.welcomeMessage1') }}
-				<p>TEST OUTPUT</p>
             </p>
             <p class="">
                 {{ __('messages.welcomeMessage2') }}

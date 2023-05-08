@@ -95,5 +95,6 @@ return [
     'Space where guests can cook their own meals' => 'Space where guests can cook their own meals',
     'Fridge' => 'Fridge',
     'Contains a section for freezing' => 'Contains a section for freezing',
+    'In a separate shared room.' => 'V samostatném sdíleném pokoji.',
 ];
 

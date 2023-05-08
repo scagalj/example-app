@@ -95,5 +95,6 @@ return [
     'Space where guests can cook their own meals' => 'Spazio dove gli ospiti possono cucinare i propri pasti',
     'Fridge' => 'Frigorifero',
     'Contains a section for freezing' => 'Contiene una sezione per il congelamento',
+    'In a separate shared room.' => 'In una stanza condivisa separata.',
 ];
 

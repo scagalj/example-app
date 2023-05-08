@@ -29,11 +29,11 @@
                 </p>
                 <p class="footerContactDetail">
                     <i class="fa fa-whatsapp footerIcon" aria-hidden="true"></i>
-                    <span><a href="tel:+385911235696">+385911235696</a></span>
+                    <span><a href="tel:+3850915933575">+3850915933575</a></span>
                 </p>
                 <p class="footerContactDetail">
                     <i class="fa fa-phone footerIcon" aria-hidden="true"></i>
-                    <span><a href="tel:+385911235696">+385911235696</a></span>
+                    <span><a href="tel:+385919285696">+385919285696</a></span>
                 </p>
             </div>
         </div>

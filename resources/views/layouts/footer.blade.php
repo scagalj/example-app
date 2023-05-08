@@ -29,7 +29,7 @@
                 </p>
                 <p class="footerContactDetail">
                     <i class="fa fa-whatsapp footerIcon" aria-hidden="true"></i>
-                    <span><a href="tel:+3850915933575">+3850915933575</a></span>
+                    <span><a href="tel:+385915933575">+385915933575</a></span>
                 </p>
                 <p class="footerContactDetail">
                     <i class="fa fa-phone footerIcon" aria-hidden="true"></i>

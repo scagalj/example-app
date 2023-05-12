@@ -96,5 +96,6 @@ return [
     'Fridge' => 'Frigorifero',
     'Contains a section for freezing' => 'Contiene una sezione per il congelamento',
     'In a separate shared room.' => 'In una stanza condivisa separata.',
+    'Self check-in' => 'Check-in automatico',
 ];
 

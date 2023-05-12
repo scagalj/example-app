@@ -92,6 +92,5 @@ return [
     'Studio apartment 6' => 'Studio apartment 6',
     'Lisičina 2, 21310 Omiš, Croatia' => 'Lisičina 2, 21310 Omiš, Croatia',
     'showmore' => 'show more',
-    'Self check-in' => 'Self check-in',
     
 ];

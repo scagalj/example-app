@@ -96,5 +96,6 @@ return [
     'Fridge' => 'Fridge',
     'Contains a section for freezing' => 'Contains a section for freezing',
     'In a separate shared room.' => 'In a separate shared room.',
+    'Self check-in' => 'Self check-in',
 ];
 

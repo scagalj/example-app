@@ -96,5 +96,6 @@ return [
     'Fridge' => 'Lednice',
     'Contains a section for freezing' => 'Obsahuje oddíl pro mražení',
     'In a separate shared room.' => 'Obsahuje oddíl pro mražení',
+    'Self check-in' => 'Samoobslužné odbavení',
 ];
 

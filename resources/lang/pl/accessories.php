@@ -96,5 +96,6 @@ return [
     'Fridge' => 'Lodówka',
     'Contains a section for freezing' => 'Zawiera sekcję zamrażania',
     'In a separate shared room.' => 'W osobnym, wspólnym pomieszczeniu.',
+    'Self check-in' => 'Samodzielne zameldowanie',
 ];
 

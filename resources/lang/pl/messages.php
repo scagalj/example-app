@@ -7,6 +7,8 @@ return [
     'ExploreLikeALocal' => 'Zwiedzaj jak tubylec',
     'Contact' => 'Kontakt',
     'ApartmentsNature' => 'Apartments Nature',
+    'ApartmentsNatureTitle' => 'Apartments Nature | Omiš',
+    'ApartmentsNatureDescription' => 'Apartments Nature | Omiš',
     'Guests' => 'Goście',
     'Bedrooms' => 'Sypialnie',
     'Beds' => 'Łóżka',
@@ -90,6 +92,9 @@ return [
     'Studio apartment 4' => 'Apartament typu studio 4',
     'Studio apartment 5' => 'Apartament typu studio 5',
     'Studio apartment 6' => 'Apartament typu studio 6',
+    'Studio apartment 7' => 'Apartament typu studio 7',
+    'Studio apartment 8' => 'Apartament typu studio 8',
+    'Studio apartment 9' => 'Apartament typu studio 9',
     'Lisičina 2, 21310 Omiš, Croatia' => 'Lisičina 2, 21310 Omiš, Chorwacja',
     'showmore' => 'pokaż więce',
 ];

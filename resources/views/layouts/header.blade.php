@@ -1,8 +1,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta name="application-name" content="{{ __('messages.ApartmentsNature') }}">
 
-<title>{{ __('messages.ApartmentsNature') }}</title>
+<meta name="description" content="{{ __('messages.ApartmentsNatureDescription') }}">
+<title>{{ __('messages.ApartmentsNatureTitle') }}</title>
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">

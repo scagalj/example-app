@@ -6,6 +6,8 @@ return [
     'Experience' => 'Erlebnis',
     'Contact' => 'Kontakt',
     'ApartmentsNature' => 'Apartments Nature',
+    'ApartmentsNatureTitle' => 'Apartments Nature | Omiš',
+    'ApartmentsNatureDescription' => 'Apartments Nature | Omiš',
     'Guests' => 'Gäste',
     'Bedrooms' => 'Schlafzimmer',
     'Beds' => 'Betten',
@@ -89,6 +91,9 @@ return [
     'Studio apartment 4' => 'Studio-Apartment 4',
     'Studio apartment 5' => 'Studio-Apartment 5',
     'Studio apartment 6' => 'Studio-Apartment 6',
+    'Studio apartment 7' => 'Studio-Apartment 7',
+    'Studio apartment 8' => 'Studio-Apartment 8',
+    'Studio apartment 9' => 'Studio-Apartment 9',
     'Lisičina 2, 21310 Omiš, Croatia' => 'Lisičina 2, 21310 Omiš, Kroatien',
     'showmore' => 'mehr anzeigen',
 ];

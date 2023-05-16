@@ -8,9 +8,8 @@
         <?php
 
         use App\Http\Controllers\LangController;
-        
-        $lang = LangController::getLanguage();
-        
+
+$lang = LangController::getLanguage();
         ?>
 
         @include('/layouts/navbar')
@@ -372,25 +371,25 @@
                                     ?>
                                 </span> 
                             </div>
-<!--                            <div class="col-sm-12 col-md-6 accessoriesEntry">
-                                <span class="icon">
-                                    <svg class="bk-icon -streamline-pawprint" height="20" width="20" viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false"><path d="M16.01 15a4.5 4.5 0 1 0-9 0l.75-.75a3.75 3.75 0 1 0 0 7.5 4.96 4.96 0 0 0 2.245-.59 3.277 3.277 0 0 1 3.018.005c.677.365 1.44.567 2.22.585a3.75 3.75 0 1 0 .018-7.5l.749.75zm-1.5 0c0 .414.336.75.75.75a2.25 2.25 0 0 1 0 4.5 3.435 3.435 0 0 1-1.536-.41 4.786 4.786 0 0 0-4.42-.005 3.457 3.457 0 0 1-1.562.415A2.247 2.247 0 0 1 5.51 18a2.25 2.25 0 0 1 2.25-2.25.75.75 0 0 0 .75-.75 3 3 0 1 1 6 0zm-9.75-3.75a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm3-6a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm6 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm3.75 6a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0z"></path></svg>
-                                </span>
-                                <span class="iconDescrption">
-                                    <?php
-                                    if ($apartment->house->petsAllowed) {
-                                        echo __('messages.PetsAreAllowed');
-                                    } else {
-                                        echo __('messages.PetsAreNotAllowed');
-                                    }
-                                    ?>
-                                </span> 
-                            </div>-->
+                            <!--                            <div class="col-sm-12 col-md-6 accessoriesEntry">
+                                                            <span class="icon">
+                                                                <svg class="bk-icon -streamline-pawprint" height="20" width="20" viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false"><path d="M16.01 15a4.5 4.5 0 1 0-9 0l.75-.75a3.75 3.75 0 1 0 0 7.5 4.96 4.96 0 0 0 2.245-.59 3.277 3.277 0 0 1 3.018.005c.677.365 1.44.567 2.22.585a3.75 3.75 0 1 0 .018-7.5l.749.75zm-1.5 0c0 .414.336.75.75.75a2.25 2.25 0 0 1 0 4.5 3.435 3.435 0 0 1-1.536-.41 4.786 4.786 0 0 0-4.42-.005 3.457 3.457 0 0 1-1.562.415A2.247 2.247 0 0 1 5.51 18a2.25 2.25 0 0 1 2.25-2.25.75.75 0 0 0 .75-.75 3 3 0 1 1 6 0zm-9.75-3.75a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm3-6a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm6 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm3.75 6a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0z"></path></svg>
+                                                            </span>
+                                                            <span class="iconDescrption">
+                            <?php
+                            if ($apartment->house->petsAllowed) {
+                                echo __('messages.PetsAreAllowed');
+                            } else {
+                                echo __('messages.PetsAreNotAllowed');
+                            }
+                            ?>
+                                                            </span> 
+                                                        </div>-->
                         </div>
                     </div>
 
                 </div>
-<?php endif; ?>
+            <?php endif; ?>
 
             <hr/>
 
@@ -409,7 +408,7 @@
                             <!--<span>Lisičina 2, 21310 Omiš, Croatia</span>-->
                         <!--</div>-->
                         <div>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7058.467964940421!2d16.693540918140478!3d43.446918317092496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134a9998d1887e19%3A0xb66add0f81abc631!2sApartments%20Nature!5e0!3m2!1shr!2shr!4v1677357095262!5m2!1shr!2shr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe id="googlemps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5793.658165061611!2d16.68513861313894!3d43.44328550964453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134a9842f9b61385%3A0x8987116b5779943c!2zTGlzacSNaW5hIDIsIDIxMzEwLCBPbWnFoQ!5e0!3m2!1shr!2shr!4v1684258887423!5m2!1shr!2shr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                     <!--<hr/>-->

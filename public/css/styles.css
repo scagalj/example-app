@@ -356,6 +356,8 @@ body{
 }
 .headerItems a {
     color: var(--dark-grey-color-hex) !important;
+    padding-right: 0.6rem !important;
+    padding-left: 0.6rem !important;
 }
 .headerItems{
     font-size: 15px;

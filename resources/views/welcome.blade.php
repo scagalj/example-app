@@ -147,7 +147,7 @@
 
 
         <div id="location" class="container-fluid mb-5" style="padding: 0px;">
-            <iframe id="googlemps" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4118.891789282664!2d16.686875737841838!3d43.44598708451032!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134a9998d1887e19%3A0xb66add0f81abc631!2sApartments%20Nature!5e0!3m2!1shr!2shr!4v1680730404692!5m2!1shr!2shr" width="100%" height="650" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe id="googlemps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5793.658165061611!2d16.68513861313894!3d43.44328550964453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134a9842f9b61385%3A0x8987116b5779943c!2zTGlzacSNaW5hIDIsIDIxMzEwLCBPbWnFoQ!5e0!3m2!1shr!2shr!4v1684258887423!5m2!1shr!2shr" width="100%" height="650" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
         <!--------------END CONTACT US----------------->

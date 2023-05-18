@@ -14,6 +14,7 @@ use App\Models\House;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\LangController;
+use Carbon\Carbon;
 
 /**
  * Description of ApartmentController
@@ -46,6 +47,9 @@ class ApartmentController extends BaseController {
     }
 
     public function update(Request $request, $house_id, $id) {
+        error_log('Pozvana update price.');
+
+
 
         $apartment = Apartment::find($id);
         $apartment->name = $request->input('name');
@@ -53,18 +57,14 @@ class ApartmentController extends BaseController {
         $apartment->apartmentType = $request->input('type');
         $apartment->size = $request->input('size');
         $apartment->note = $request->input('note');
-        
+
         $apartment->description = LangController::getLanguageFieldAsJson($request, 'description');
 
         $apartment->save();
 
-        return redirect()->route('admin.apartments.edit', ['house_id' => $house_id, 'id' => $apartment->id])->with('succesfulMessage', 'Apartment ' . $apartment->name . ' is updated');
+        return redirect()->route('admin.apartments.edit', ['house_id' => $house_id, 'id' => $apartment->id])->with('succesfulMessage', 'Apartment - ' . $apartment->name . ' is updated');
     }
 
-    
-    
-    
-    
     public function new($house_id) {
         $house = House::find($house_id);
 
@@ -82,9 +82,27 @@ class ApartmentController extends BaseController {
         ]);
     }
 
+    public function addPrice(Request $request, $house_id, $id) {
+        error_log('Pozvana add price.');
+        $apartment = Apartment::find($id);
+
+        $fromDate = Carbon::createFromFormat('d.m.Y', $request->input('fromDate'))->toDateString();
+        $toDate = Carbon::createFromFormat('d.m.Y', $request->input('toDate'))->toDateString();
+        $priceVal = $request->input('price');
+//        
+//        
+//         
+        $price = $apartment->apartmentPrices()->create([
+            'fromDate' => $fromDate,
+            'toDate' => $toDate,
+            'price' => $priceVal,
+        ]);
+        return redirect()->route('admin.apartments.edit', ['house_id' => $apartment->house->id, 'id' => $apartment->id])->with('succesfulMessage', 'CIJENA JE PROSLA?');
+    }
+
     public function index() {
         $allApartments = Apartment::all();
-        Log::info($allApartments);
+//        Log::info($allApartments);
 
         return view('admin/apartments', ['apartments' => Apartment::all()]);
     }
@@ -98,8 +116,8 @@ class ApartmentController extends BaseController {
             return true;
         }
     }
-    
-    public static function getById($apartmentId){
+
+    public static function getById($apartmentId) {
         return Apartment::find($apartmentId);
     }
 

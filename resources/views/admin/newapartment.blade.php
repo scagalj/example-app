@@ -6,8 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title></title>
+        @include('/layouts/header')
     </head>
     <body>
 
@@ -77,9 +76,9 @@ and open the template in the editor.
                     </select>
                 </div>
 
-            @isset($apartment)
+                @isset($apartment)
                 @include('/language/transatablefields', ['fieldName' => 'description', 'fieldObject' => $apartment])
-            @endisset
+                @endisset
 
                 <button class="button" type="submit">{{ isset($apartment) ? 'Save' : 'Create' }}</button>
             </form>
@@ -189,6 +188,52 @@ and open the template in the editor.
         <br/>
 
 
+        <h3>Prices:</h3>
+
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>From date</th>
+                    <th>To date</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($apartment->apartmentPrices as $price)
+                <tr>
+                    <td>{{ $price->fromDate }}</td>
+                    <td>{{ $price->toDate }}</td>
+                    <td>{{ $price->price }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+        <form action="{{ route('admin.apartments.addprice', ['house_id'=>$apartment->house->id, 'id'=>$apartment->id] ) }}" method="post" enctype="multipart/form-data">
+            @csrf
+
+
+            <div class="input-date">
+                <span>From date:</span>
+                <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off"  data-provide="datepicker" id="fromDate" name="fromDate" value="" required="false">
+            </div>
+            <div class="input-date">
+                <span>To date:</span>
+                <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off" data-provide="datepicker" id="toDate" name="toDate" value="" required="false">
+            </div>
+            
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" step="any"  name="price" id="price" class="form-control"/>
+            </div>
+
+
+            <div class=" uppercase input-date">
+                <button type="submit" class="makeRequestBtn uppercase">Add price</button>
+            </div>
+        </form> 
+
 
         @endisset
 
@@ -196,5 +241,11 @@ and open the template in the editor.
         <div class="panel-body">
         </div>
 
+        <script>
+    $(document).ready(function () {
+        $(".date-pickers").datepicker.defaults.format = 'dd.mm.yyyy';
+    });
+</script>
+        
     </body>
 </html>

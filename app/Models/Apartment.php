@@ -10,6 +10,7 @@ namespace App\Models;
 
 use App\Http\Controllers\LangController;
 use App\Models\ApartmentReviews;
+use App\Models\ApartmentPrices;
 use App\Models\House;
 use App\Models\Images;
 use Illuminate\Database\Eloquent\Model;
@@ -58,6 +59,10 @@ class Apartment extends Model {
 
     public function apartmentReviews() {
         return $this->hasMany(ApartmentReviews::class);
+    }
+    
+    public function apartmentPrices() {
+        return $this->hasMany(ApartmentPrices::class);
     }
     
     public function getdescriptionvalue($lang){

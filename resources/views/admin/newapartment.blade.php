@@ -190,7 +190,7 @@ and open the template in the editor.
 
         <h3>Prices:</h3>
 
-        
+
         <table>
             <thead>
                 <tr>
@@ -202,50 +202,60 @@ and open the template in the editor.
             <tbody>
                 @foreach($apartment->apartmentPrices as $price)
                 <tr>
-                    <td>{{ $price->fromDate }}</td>
-                    <td>{{ $price->toDate }}</td>
-                    <td>{{ $price->price }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                    <form action="{{ route('admin.apartments.updateprice', ['apartment_id' => $apartment->id, 'id' => $price->id]) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                        <td><button type="submit">Update</button></td>
+                        <td><input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off"  data-provide="datepicker" id="fromDate" name="fromDate" value="{{ \Carbon\Carbon::parse($price->fromDate)->format('d.m.Y') }}" required="true"></td>
+                        <td><input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off"  data-provide="datepicker" id="toDate" name="toDate" value="{{ \Carbon\Carbon::parse($price->toDate)->format('d.m.Y') }}" required="true"></td>
+                        <td><input type="number" step="any"  name="price" id="price" class="form-control" value="{{ $price->price }}" required="true"/></td>
+                    </form> 
+                <td>
+                    <form action="{{ route('admin.apartments.deleteprice', ['apartment_id' => $apartment->id, 'id' => $price->id]) }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <button type="submit">Delete</button>
+                    </form> 
+                </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 
-        <form action="{{ route('admin.apartments.addprice', ['house_id'=>$apartment->house->id, 'id'=>$apartment->id] ) }}" method="post" enctype="multipart/form-data">
-            @csrf
-
-
-            <div class="input-date">
-                <span>From date:</span>
-                <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off"  data-provide="datepicker" id="fromDate" name="fromDate" value="" required="false">
-            </div>
-            <div class="input-date">
-                <span>To date:</span>
-                <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off" data-provide="datepicker" id="toDate" name="toDate" value="" required="false">
-            </div>
-            
-            <div class="form-group">
-                <label for="price">Price:</label>
-                <input type="number" step="any"  name="price" id="price" class="form-control"/>
-            </div>
+<form action="{{ route('admin.apartments.addprice', ['house_id'=>$apartment->house->id, 'id'=>$apartment->id] ) }}" method="post" enctype="multipart/form-data">
+    @csrf
 
 
-            <div class=" uppercase input-date">
-                <button type="submit" class="makeRequestBtn uppercase">Add price</button>
-            </div>
-        </form> 
+    <div class="input-date">
+        <span>From date:</span>
+        <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off"  data-provide="datepicker" id="fromDate" name="fromDate" value="" required="true">
+    </div>
+    <div class="input-date">
+        <span>To date:</span>
+        <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off" data-provide="datepicker" id="toDate" name="toDate" value="" required="true">
+    </div>
+
+    <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" step="any"  name="price" id="price" class="form-control" required="true"/>
+    </div>
 
 
-        @endisset
+    <div class=" uppercase input-date">
+        <button type="submit" class="makeRequestBtn uppercase">Add price</button>
+    </div>
+</form> 
 
 
-        <div class="panel-body">
-        </div>
+@endisset
 
-        <script>
+
+<div class="panel-body">
+</div>
+
+<script>
     $(document).ready(function () {
         $(".date-pickers").datepicker.defaults.format = 'dd.mm.yyyy';
     });
 </script>
-        
-    </body>
+
+</body>
 </html>

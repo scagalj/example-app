@@ -101,6 +101,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/apnatureadmin/newapartment/{house_id}', [ApartmentController::class, 'store'])->name('admin.apartments.store');
     Route::get('/apnatureadmin/house/{house_id}', [ApartmentController::class, 'back'])->name('admin.apartments.back');
     Route::post('/apnatureadmin/newapartment/{house_id}/{id}', [ApartmentController::class, 'addPrice'])->name('admin.apartments.addprice');
+    Route::post('/apnatureadmin/apartment/price/delete/{apartment_id}/{id}', [ApartmentController::class, 'deletePrice'])->name('admin.apartments.deleteprice');
+    Route::post('/apnatureadmin/apartment/price/update/{apartment_id}/{id}', [ApartmentController::class, 'updatePrice'])->name('admin.apartments.updateprice');
     
     Route::get('/apnatureadmin/newroom/{apartment_id}', [RoomController::class, 'new'])->name('admin.rooms.new');
     Route::get('/apnatureadmin/newroom/{apartment_id}/{id}', [RoomController::class, 'edit'])->name('admin.rooms.edit');

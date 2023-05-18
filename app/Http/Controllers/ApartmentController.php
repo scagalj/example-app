@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\LangController;
 use Carbon\Carbon;
+use \App\Models\ApartmentPrices;
 
 /**
  * Description of ApartmentController
@@ -82,23 +83,44 @@ class ApartmentController extends BaseController {
         ]);
     }
 
+    public function deletePrice($apartment_id, $id) {
+        error_log('Pozvana delete price.');
+        
+         $apartment = Apartment::find($apartment_id);
+        $price = ApartmentPrices::find($id);
+        $price->delete();
+
+        return redirect()->route('admin.apartments.edit', ['house_id' => $apartment->house->id, 'id' => $apartment->id]);
+        
+    }
+    
+    public function updatePrice(Request $request, $apartent_id, $id) {
+        error_log('Pozvana update price.');
+        $apartment = Apartment::find($apartent_id);
+        $price = ApartmentPrices::find($id);
+        
+        $price->fromDate = Carbon::createFromFormat('d.m.Y', $request->input('fromDate'))->toDateString();
+        $price->toDate = Carbon::createFromFormat('d.m.Y', $request->input('toDate'))->toDateString();
+        $price->price =  $request->input('price');
+        
+        $price->save();
+        
+        return redirect()->route('admin.apartments.edit', ['house_id' => $apartment->house->id, 'id' => $apartment->id])->with('succesfulMessage', 'CIJENA JE PROSLA?');
+    }
+    
     public function addPrice(Request $request, $house_id, $id) {
         error_log('Pozvana add price.');
         $apartment = Apartment::find($id);
 
-        $fromDate = Carbon::createFromFormat('d.m.Y', $request->input('fromDate'))->toDateString();
-        $toDate = Carbon::createFromFormat('d.m.Y', $request->input('toDate'))->toDateString();
-        $priceVal = $request->input('price');
-//        
-//        
-//         
         $price = $apartment->apartmentPrices()->create([
-            'fromDate' => $fromDate,
-            'toDate' => $toDate,
-            'price' => $priceVal,
+            'fromDate' => Carbon::createFromFormat('d.m.Y', $request->input('fromDate'))->toDateString(),
+            'toDate' => Carbon::createFromFormat('d.m.Y', $request->input('toDate'))->toDateString(),
+            'price' => $request->input('price'),
         ]);
         return redirect()->route('admin.apartments.edit', ['house_id' => $apartment->house->id, 'id' => $apartment->id])->with('succesfulMessage', 'CIJENA JE PROSLA?');
     }
+    
+    
 
     public function index() {
         $allApartments = Apartment::all();

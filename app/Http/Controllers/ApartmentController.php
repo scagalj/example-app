@@ -95,12 +95,14 @@ class ApartmentController extends BaseController {
     }
     
     public function updatePrice(Request $request, $apartent_id, $id) {
-        error_log('Pozvana update price.');
         $apartment = Apartment::find($apartent_id);
         $price = ApartmentPrices::find($id);
         
-        $price->fromDate = Carbon::createFromFormat('d.m.Y', $request->input('fromDate'))->toDateString();
-        $price->toDate = Carbon::createFromFormat('d.m.Y', $request->input('toDate'))->toDateString();
+        $from = $request->input('fromDate') . ' 00:00:00';
+        $to = $request->input('toDate') . ' 23:59:59';
+        
+        $price->fromDate = Carbon::createFromFormat('d.m.Y H:i:s', $from);
+        $price->toDate = Carbon::createFromFormat('d.m.Y H:i:s', $to);
         $price->price =  $request->input('price');
         
         $price->save();
@@ -109,12 +111,11 @@ class ApartmentController extends BaseController {
     }
     
     public function addPrice(Request $request, $house_id, $id) {
-        error_log('Pozvana add price.');
         $apartment = Apartment::find($id);
 
         $price = $apartment->apartmentPrices()->create([
-            'fromDate' => Carbon::createFromFormat('d.m.Y', $request->input('fromDate'))->toDateString(),
-            'toDate' => Carbon::createFromFormat('d.m.Y', $request->input('toDate'))->toDateString(),
+            'fromDate' => Carbon::createFromFormat('d.m.Y H:i:s', $request->input('fromDate') . ' 00:00:00')->toDateString(),
+            'toDate' => Carbon::createFromFormat('d.m.Y H:i:s', $request->input('toDate') . ' 23:59:59')->toDateString(),
             'price' => $request->input('price'),
         ]);
         return redirect()->route('admin.apartments.edit', ['house_id' => $apartment->house->id, 'id' => $apartment->id])->with('succesfulMessage', 'CIJENA JE PROSLA?');
@@ -123,7 +124,7 @@ class ApartmentController extends BaseController {
     
 
     public function index() {
-        $allApartments = Apartment::all();
+//        $allApartments = Apartment::all();
 //        Log::info($allApartments);
 
         return view('admin/apartments', ['apartments' => Apartment::all()]);

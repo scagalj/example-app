@@ -1,6 +1,17 @@
 @isset($apartment)
 
-<div class="p-4 col-lg-6 col-sm-12 col-12 mb-5 apartment-container">
+<?php
+$isDatesDefined = false;
+$price = 0;
+if (isset($periodFrom) && isset($periodTo)) {
+    $isDatesDefined = true;
+    $price = $apartment->calculatePrice($periodFrom, $periodTo);
+} else {
+    $price = $apartment->calculatePrice(null, null);
+}
+?>
+
+<div class="p-4 col-lg-6 col-sm-12 col-12 mb-5 apartment-container <?php if($price == 0) {echo 'notAvailable';} ?>">
     <div class="box shadow">
 
         <a href="{{route('apartment', $apartment->id)}}">
@@ -26,6 +37,18 @@
             <!--<div class="apartment-name-more-details">Show more details</div>-->
             <div class="apartment-book-now uppercase">
                 <a href="{{ route('apartment', $apartment->id) }}"><p> {{ __('messages.BookNow') }} +</p></a>
+                <?php
+//                if ($price == 0) {
+//                    echo 'SOLD OUT';
+//                } else {
+//
+//                    if ($isDatesDefined) {
+//                        echo __('Messages.Price') . $price . '€';
+//                    } else {
+//                        echo __('Messages.From') . $price . '€ night';
+//                    }
+//                }
+                ?>
             </div>
         </div>
     </div>

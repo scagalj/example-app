@@ -14,6 +14,7 @@ use App\Models\ApartmentPrices;
 use App\Models\House;
 use App\Models\Images;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 /**
  * Description of Apartment
@@ -185,6 +186,48 @@ class Apartment extends Model {
         return $allAccessories;
     }
 
+    public function calculatePrice($periodFrom, $periodTo){
+        
+        if (!isset($periodFrom)) {
+            $periodFrom = date('d.m.Y');
+        }
+
+        if (!isset($periodTo)) {
+            $periodTo = date('d.m.Y', strtotime($periodFrom . ' +1 day')); // Add one day
+        }
+
+        error_log('Datum1: ' . $periodFrom);
+        error_log('Datum:2 ' . $periodTo);
+
+
+        $dateFrom = Carbon::createFromFormat('d.m.Y', $periodFrom);
+        $dateTo = Carbon::createFromFormat('d.m.Y', $periodTo);
+        
+        $amount = 0;
+        
+        while($dateFrom < $dateTo){
+            $price = $this->calculatePriceForDate($dateFrom);
+            if($price != null){
+                
+                error_log('Calculate price:' . $price->price . ' for date ' . $dateFrom);
+                $amount += $price->price;
+            }
+            $dateFrom->addDay();
+        }
+        return $amount;
+        
+    }
+    
+    private function calculatePriceForDate($date){
+        $apartmentPrices = $this->apartmentPrices()->get();
+        foreach($apartmentPrices as $price){
+            if($date->between($price->fromDate, $price->toDate)){
+                return $price;
+            }
+        }
+        return null;
+    }
+    
 //    public function getOtherImages() {
 //        return $this->images()->where('mainimage', false);
 

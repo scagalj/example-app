@@ -196,22 +196,19 @@ class Apartment extends Model {
             $periodTo = date('d.m.Y', strtotime($periodFrom . ' +1 day')); // Add one day
         }
 
-        error_log('Datum1: ' . $periodFrom);
-        error_log('Datum:2 ' . $periodTo);
-
-
         $dateFrom = Carbon::createFromFormat('d.m.Y', $periodFrom);
         $dateTo = Carbon::createFromFormat('d.m.Y', $periodTo);
         
         $amount = 0;
         
-        while($dateFrom < $dateTo){
+        while ($dateFrom < $dateTo) {
             $price = $this->calculatePriceForDate($dateFrom);
-            if($price != null){
-                
-                error_log('Calculate price:' . $price->price . ' for date ' . $dateFrom);
-                $amount += $price->price;
+            //Ako neki period nema cijenu vrati 0 kao da taj period nije bookabilan.
+            if (price == null) {
+                return 0;
             }
+
+            $amount += $price->price;
             $dateFrom->addDay();
         }
         return $amount;

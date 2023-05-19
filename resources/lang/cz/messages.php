@@ -8,7 +8,7 @@ return [
     'Contact' => 'Kontakt',
     'ApartmentsNature' => 'Apartments Nature',
     'ApartmentsNatureTitle' => 'Apartments Nature | Omiš',
-    'ApartmentsNatureDescription' => 'Apartments Nature | Omiš',
+    'ApartmentsNatureDescription' => 'Najděte si svůj pronájem bytu v Omisu poblíž centra města, moře a krásné přírody. Ideální pro přátele, páry a rodiny na krátkodobé i dlouhodobé pobyty.',
     'Guests' => 'Hosté',
     'Bedrooms' => 'Ložnice',
     'Beds' => 'Postele',

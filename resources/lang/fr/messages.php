@@ -7,7 +7,7 @@ return [
     'Contact' => 'Contact',
     'ApartmentsNature' => 'Appartements Nature',
     'ApartmentsNatureTitle' => 'Apartments Nature | Omiš',
-    'ApartmentsNatureDescription' => 'Apartments Nature | Omiš',
+    'ApartmentsNatureDescription' => 'Trouvez votre appartement à louer à Omis près du centre-ville, de la mer et de la belle nature. Parfait pour les amis, les couples et les familles pour des séjours courts ou longs.',
     'Guests' => 'Invités',
     'Bedrooms' => 'Chambres',
     'Beds' => 'Lits',

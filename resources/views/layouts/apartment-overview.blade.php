@@ -18,13 +18,13 @@ $priceText = '';
 $priceAmount = '';
 $priceCurrency = ' € ';
 if ($price == 0) {
-    $priceText = __('Messages.OnRequest');
+    $priceText = __('messages.OnRequest');
 } else {
     if ($isDatesDefined) {
         $priceAmount = $priceCurrency . $price;
-        $priceText =  __('Messages.TotalPrice');
+        $priceText =  __('messages.TotalPrice');
     } else {
-        $priceText = __('Messages.From') . '<span class="mint-color">' . $priceCurrency  . $price . ' / ' . __('Messages.Night') . '</span>';
+        $priceText = __('messages.From') . '<span class="mint-color">' . $priceCurrency  . $price . ' / ' . __('messages.Night') . '</span>';
     }
 }
 ?>

@@ -121,84 +121,83 @@ class ApartmentController extends BaseController {
     }
     
     public static function duplicatePriceToAllOtherApartments(){
-                error_log('Dupliciram cijene:');
-
-        $ap1 = 1;
-        $ap2 = 2;
-        $ap3 = 3;
-        $ap4 = 4;
-        $ap5 = 5;
-        $ap6 = 6;
-        $ap7 = 7;
-        $mainAp = Apartment::find($ap1);
-        
-        $mainPrices = $mainAp->apartmentPrices()->get();
-        $apartment2 = Apartment::find($ap2);
-        if ($apartment2 != null && !$apartment2->apartmentPrices()->exists()) {
-            error_log('Dupliciram cijene za 2:');
-            foreach ($mainPrices as $price) {
-                $price = $apartment2->apartmentPrices()->create([
-                    'fromDate' => $price->fromDate,
-                    'toDate' => $price->toDate,
-                    'price' => $price->price,
-                ]);
-            }
-        }
-        $apartment3 = Apartment::find($ap3);
-        if ($apartment3 != null && !$apartment3->apartmentPrices()->exists()) {
-            error_log('Dupliciram cijene za 3:');
-            foreach ($mainPrices as $price) {
-                $price = $apartment3->apartmentPrices()->create([
-                    'fromDate' => $price->fromDate,
-                    'toDate' => $price->toDate,
-                    'price' => $price->price,
-                ]);
-            }
-        }
-        $apartment4 = Apartment::find($ap4);
-        if ($apartment4 != null && !$apartment4->apartmentPrices()->exists()) {
-            error_log('Dupliciram cijene za 4:');
-            foreach ($mainPrices as $price) {
-                $price = $apartment4->apartmentPrices()->create([
-                    'fromDate' => $price->fromDate,
-                    'toDate' => $price->toDate,
-                    'price' => $price->price,
-                ]);
-            }
-        }
-        $apartment5 = Apartment::find($ap5);
-        if ($apartment5 != null && !$apartment5->apartmentPrices()->exists()) {
-            error_log('Dupliciram cijene za 5:');
-            foreach ($mainPrices as $price) {
-                $price = $apartment5->apartmentPrices()->create([
-                    'fromDate' => $price->fromDate,
-                    'toDate' => $price->toDate,
-                    'price' => $price->price,
-                ]);
-            }
-        }
-        $apartment6 = Apartment::find($ap6);
-        if ($apartment6 != null  && !$apartment6->apartmentPrices()->exists()) {
-            error_log('Dupliciram cijene za 6:');
-            foreach ($mainPrices as $price) {
-                $price = $apartment6->apartmentPrices()->create([
-                    'fromDate' => $price->fromDate,
-                    'toDate' => $price->toDate,
-                    'price' => $price->price,
-                ]);
-            }
-        }
-        $apartment7 = Apartment::find($ap7);
-        if ($apartment7 != null  && !$apartment7->apartmentPrices()->exists()) {
-            error_log('Dupliciram cijene za 7:');
-            foreach ($mainPrices as $price) {
-                $price = $apartment7->apartmentPrices()->create([
-                    'fromDate' => $price->fromDate,
-                    'toDate' => $price->toDate,
-                    'price' => $price->price,
-                ]);
-            }
-        }
+            
+//        $ap1 = 1;
+//        $ap2 = 2;
+//        $ap3 = 3;
+//        $ap4 = 4;
+//        $ap5 = 5;
+//        $ap6 = 6;
+//        $ap7 = 7;
+//        $mainAp = Apartment::find($ap1);
+//        
+//        $mainPrices = $mainAp->apartmentPrices()->get();
+//        $apartment2 = Apartment::find($ap2);
+//        if ($apartment2 != null && !$apartment2->apartmentPrices()->exists()) {
+//            error_log('Dupliciram cijene za 2:');
+//            foreach ($mainPrices as $price) {
+//                $price = $apartment2->apartmentPrices()->create([
+//                    'fromDate' => $price->fromDate,
+//                    'toDate' => $price->toDate,
+//                    'price' => $price->price,
+//                ]);
+//            }
+//        }
+//        $apartment3 = Apartment::find($ap3);
+//        if ($apartment3 != null && !$apartment3->apartmentPrices()->exists()) {
+//            error_log('Dupliciram cijene za 3:');
+//            foreach ($mainPrices as $price) {
+//                $price = $apartment3->apartmentPrices()->create([
+//                    'fromDate' => $price->fromDate,
+//                    'toDate' => $price->toDate,
+//                    'price' => $price->price,
+//                ]);
+//            }
+//        }
+//        $apartment4 = Apartment::find($ap4);
+//        if ($apartment4 != null && !$apartment4->apartmentPrices()->exists()) {
+//            error_log('Dupliciram cijene za 4:');
+//            foreach ($mainPrices as $price) {
+//                $price = $apartment4->apartmentPrices()->create([
+//                    'fromDate' => $price->fromDate,
+//                    'toDate' => $price->toDate,
+//                    'price' => $price->price,
+//                ]);
+//            }
+//        }
+//        $apartment5 = Apartment::find($ap5);
+//        if ($apartment5 != null && !$apartment5->apartmentPrices()->exists()) {
+//            error_log('Dupliciram cijene za 5:');
+//            foreach ($mainPrices as $price) {
+//                $price = $apartment5->apartmentPrices()->create([
+//                    'fromDate' => $price->fromDate,
+//                    'toDate' => $price->toDate,
+//                    'price' => $price->price,
+//                ]);
+//            }
+//        }
+//        $apartment6 = Apartment::find($ap6);
+//        if ($apartment6 != null  && !$apartment6->apartmentPrices()->exists()) {
+//            error_log('Dupliciram cijene za 6:');
+//            foreach ($mainPrices as $price) {
+//                $price = $apartment6->apartmentPrices()->create([
+//                    'fromDate' => $price->fromDate,
+//                    'toDate' => $price->toDate,
+//                    'price' => $price->price,
+//                ]);
+//            }
+//        }
+//        $apartment7 = Apartment::find($ap7);
+//        if ($apartment7 != null  && !$apartment7->apartmentPrices()->exists()) {
+//            error_log('Dupliciram cijene za 7:');
+//            foreach ($mainPrices as $price) {
+//                $price = $apartment7->apartmentPrices()->create([
+//                    'fromDate' => $price->fromDate,
+//                    'toDate' => $price->toDate,
+//                    'price' => $price->price,
+//                ]);
+//            }
+//        }
     }
 
     public function index() {

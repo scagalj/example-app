@@ -187,8 +187,6 @@ and open the template in the editor.
         <br/>
         <br/>
 
-        <?php App\Http\Controllers\ApartmentController::duplicatePriceToAllOtherApartments() ?>
-
         <h3>Prices:</h3>
 
 

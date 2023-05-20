@@ -29,6 +29,10 @@ body a{
     color: var(--dark-grey-color-hex) !important;
 }
 
+.mint-color{
+    color: var(--mint-color-hex);
+}
+
 a:hover, .footer-wrapper a:hover{
     color: var(--mint-color-hex) !important;
 }
@@ -126,13 +130,51 @@ body{
     position: relative;
     text-align: center;
     padding: 15px;
-    height: 100px;
-    border: 1px solid black;
+    border-radius: 50px;
+    -webkit-box-shadow: 0px 3px 10px 2px rgba(179,179,179,1);
+    -moz-box-shadow: 0px 3px 10px 2px rgba(179,179,179,1);
+    box-shadow: 0px 3px 10px 2px rgba(179,179,179,1);
 }
+
+.inline-input-date input{
+    border: 1px solid var(--mint-color-hex);
+    background: white;
+}
+.inline-input-date input:hover{
+    border: 1px solid var(--mint-color-hex);
+    background: white;
+}
+
+.inline-input-date input:focus{
+    background: white;
+}
+
+.searchBtn{
+    width: 160px;
+    border: 1px solid var(--mint-color-hex);
+}
+
+.searchBtn:hover{
+    background-color: var(--mint-color-hex);
+    color: white;
+}
+
 
 .welcomeTitle h1{
     font-size: 3rem;
     padding-bottom: 10px;
+}
+
+.inline-input-date, inline-input-number{
+    margin-right: 1vw;
+    display: inline-block;
+    padding-right: 10px;
+    width: 170px !important;
+    padding-bottom: 10px;
+}
+
+.inline-input-date span, inline-input-number span{
+    float: left;
 }
 
 .apartmentNameWelcome{
@@ -211,14 +253,14 @@ body{
 
 
 @media only screen and (max-width: 600px) {
-  .headerLogo{
+    .headerLogo{
         width: 180px;
         margin-right: 0px;
     }
 }
 
 @media only screen and (max-width: 430px) {
-  .headerLogo{
+    .headerLogo{
         width: 130px;
         margin-right: 0px;
     }
@@ -440,13 +482,41 @@ body{
     /*padding-bottom: 5px;*/
 }
 
+.one-word-per-line {
+    word-spacing: 950px; 
+}
+.priceText{
+    display: inline-block;
+    float: left;
+    font-size: 16pt;
+    font-weight: 500;
+    color: var(--dark-grey-color-hex);
+}
+
+.priceAmount{
+    padding-top: 12px;
+    display: inline-block;
+    height: 100%;
+    padding-left: 15px;
+    font-size: 20pt;
+    font-weight: 500;
+    color: var(--mint-color-hex);
+}
+
 .apartment-book-now a{
     text-decoration: none !important;
     display: inline;
-    font-size: 15pt;
+    font-size: 16pt;
     font-weight: 500;
 }
-.apartment-book-now p:hover{
+
+.apartment-book-now .price{
+    display: inline;
+    font-size: 17pt;
+    font-weight: 500;
+    color: var(--mint-color-hex);
+}
+.apartment-book-now a:hover{
     color: var(--mint-color-hex);
 }
 

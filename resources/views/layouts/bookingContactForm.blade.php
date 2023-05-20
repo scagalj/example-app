@@ -12,11 +12,11 @@
     <div class="form-group mt-4 mb-2">
         <div class="input-date">
             <span>{{ __('messages.CheckIn')}}:</span>
-            <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off"  data-provide="datepicker" id="checkIn" name="checkIn" value="" required="true">
+            <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off"  data-provide="datepicker" id="checkIn" name="checkIn" value="{{ Session::get('checkIn') ?? '' }}" required="true">
         </div>
         <div class="input-date">
             <span>{{ __('messages.CheckOut')}}:</span>
-            <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off" data-provide="datepicker" id="checkOut" name="checkOut" value="" required="true">
+            <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off" data-provide="datepicker" id="checkOut" name="checkOut" value="{{ Session::get('checkOut') ?? '' }}" required="true">
         </div>
         <div class="input-date">
             <span>{{ __('messages.FirstAndLastName')}}:</span>

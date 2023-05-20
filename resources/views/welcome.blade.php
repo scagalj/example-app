@@ -11,35 +11,41 @@
         <div class="container-fluid header-conainer">
 
             <div id="fullPageHeader" class="fullPageHeaderMain" style="background: url(/images/headers/main-header.jpg); background-position: center; background-repeat: no-repeat; background-size: cover" >
-<!--                <div id="headerContent" class="headerImageContent">
-                    <div class="container-fluid">
-                        <div class="headerName">
-                            <h1 class="whiteColor headerTitle">{{ __('messages.ApartmentsNature') }}</h1>
-                        </div>
-                    </div>
-                </div>-->
+                <!--                <div id="headerContent" class="headerImageContent">
+                                    <div class="container-fluid">
+                                        <div class="headerName">
+                                            <h1 class="whiteColor headerTitle">{{ __('messages.ApartmentsNature') }}</h1>
+                                        </div>
+                                    </div>
+                                </div>-->
 
             </div>
-            <!--            <div class="container-sm welcomeTitle">
-            
-                            Check In:
-                            <div class="form-group mb-0" id="bootstrap-datepicker">
-                                <input class="form-control" type="text" data-provide="datepicker" id="startDate" name="StartDate" value="">
-                            </div>
-                        </div>-->
+            <div class="container-sm welcomeTitle">
+                <form action="{{ route('apartment.searchCriteria.update') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="inline-input-date">
+                        <span>{{ __('messages.CheckIn')}}:</span>
+                        <input class="date-pickers form-control" type="text" autocomplete="off"  data-provide="datepicker" id="checkIn" name="checkIn" value="{{ Session::get('checkIn') ?? '' }}" required="true">
+                    </div>
+                    <div class="inline-input-date">
+                        <span>{{ __('messages.CheckOut')}}:</span>
+                        <input class="date-pickers form-control" type="text" autocomplete="off"  data-provide="datepicker" id="checkOut" name="checkOut" value="{{ Session::get('checkOut') ?? '' }}" required="true">
+                    </div>
+                    <div class="inline-input-date">
+                        <span>{{ __('messages.Guests')}}:</span>
+                        <input type="number" step="any"  name="guests" id="guests" min="1" max="2" class="form-control" value="{{ Session::get('guests') ?? '1' }}" required="true"/>
+                    </div>
+
+                    <div class="inline-input-date">
+                        <button type="submit" class="btn searchBtn">{{ __('messages.Search')}}</button>
+                    </div>
+                </form>
+            </div>
         </div>
 
         <script>
             $(document).ready(function () {
-
-                $('#startDate').datepicker({
-                    format: "dd.MM.yyyy",
-                    dateFormat: "dd.MM.yyyy",
-                    toggleActive: true,
-                    todayBtn: "linked",
-                    changeMonth: true,
-                    changeYear: true
-                });
+                $(".date-pickers").datepicker.defaults.format = 'dd.mm.yyyy';
             });
         </script>
         <!---------------HEADER END--------------------->
@@ -187,7 +193,7 @@
                         </div>
                         <div class="explore-like-a-local-image-content">
                             <h5 class="uppercase">{{ __('messages.RaftingOnCetina') }}</h5>
-                                
+
                             {{ __('messages.RaftingOnCetinaText') }}
                         </div>
                     </div>

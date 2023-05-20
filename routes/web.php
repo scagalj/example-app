@@ -37,6 +37,9 @@ Route::get('/', function () {
 })->name('welcome');
 
 
+Route::post('/', [ApartmentController::class, 'updateSearchCriteria'])->name('apartment.searchCriteria.update');
+
+
 Route::get('/apartment/{apartment}', [ApartmentController::class, 'show'])->name('apartment');
 
 //------IMAGE ROUTES------------

@@ -97,4 +97,12 @@ return [
     'Studio apartment 9' => 'Apartament typu studio 9',
     'Lisičina 2, 21310 Omiš, Croatia' => 'Lisičina 2, 21310 Omiš, Chorwacja',
     'showmore' => 'pokaż więce',
+    'Search' => 'Szukaj',
+    'Price' => 'Price',
+    'From' => 'From',
+    'SoldOut' => 'Sold out',
+    'OnRequest' => 'On request',
+    'TotalPrice' => 'Total price',
+    'Total' => 'Total',
+    'Night' => 'Night',
 ];

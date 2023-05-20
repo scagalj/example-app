@@ -186,7 +186,7 @@ class Apartment extends Model {
         return $allAccessories;
     }
 
-    public function calculatePrice($periodFrom, $periodTo){
+    public function calculatePrice($periodFrom, $periodTo, $guests){
         
         if (!isset($periodFrom)) {
             $periodFrom = date('d.m.Y');
@@ -195,20 +195,33 @@ class Apartment extends Model {
         if (!isset($periodTo)) {
             $periodTo = date('d.m.Y', strtotime($periodFrom . ' +1 day')); // Add one day
         }
+        
+        if(!isset($guests)){
+            $guests = 1;
+        }
+                    error_log('DATE; 1 ' . $guests . ' - ' . $this->getNumberOfGuests());
+        
+        $priceDivisor = 1;
+        if($guests < $this->getNumberOfGuests()){
+            $priceDivisor = 0.85;
+        }
+                    error_log('DATE; 2 ' . $priceDivisor);
 
         $dateFrom = Carbon::createFromFormat('d.m.Y', $periodFrom);
         $dateTo = Carbon::createFromFormat('d.m.Y', $periodTo);
         
+                    error_log('DATE; 3 ' . $dateFrom . ' - ' . $dateTo);
         $amount = 0;
         
         while ($dateFrom < $dateTo) {
+
             $price = $this->calculatePriceForDate($dateFrom);
             //Ako neki period nema cijenu vrati 0 kao da taj period nije bookabilan.
-            if (price == null) {
+            if ($price == null) {
                 return 0;
             }
 
-            $amount += $price->price;
+            $amount += ($price->price * $priceDivisor);
             $dateFrom->addDay();
         }
         return $amount;

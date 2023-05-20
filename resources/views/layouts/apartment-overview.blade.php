@@ -3,15 +3,33 @@
 <?php
 $isDatesDefined = false;
 $price = 0;
+$periodFrom = Session::get('checkIn');
+$periodTo = Session::get('checkOut');
+$guests = Session::get('guests');
+
 if (isset($periodFrom) && isset($periodTo)) {
     $isDatesDefined = true;
-    $price = $apartment->calculatePrice($periodFrom, $periodTo);
+    $price = $apartment->calculatePrice($periodFrom, $periodTo, $guests);
 } else {
-    $price = $apartment->calculatePrice(null, null);
+    $price = $apartment->calculatePrice(null, null, $guests);
+}
+
+$priceText = '';
+$priceAmount = '';
+$priceCurrency = ' € ';
+if ($price == 0) {
+    $priceText = __('Messages.OnRequest');
+} else {
+    if ($isDatesDefined) {
+        $priceAmount = $priceCurrency . $price;
+        $priceText =  __('Messages.TotalPrice');
+    } else {
+        $priceText = __('Messages.From') . '<span class="mint-color">' . $priceCurrency  . $price . ' / ' . __('Messages.Night') . '</span>';
+    }
 }
 ?>
 
-<div class="p-4 col-lg-6 col-sm-12 col-12 mb-5 apartment-container <?php if($price == 0) {echo 'notAvailable';} ?>">
+<div class="p-4 col-lg-6 col-sm-12 col-12 mb-5 apartment-container <?php if ($price == 0) { echo 'notAvailable'; } ?>" >
     <div class="box shadow">
 
         <a href="{{route('apartment', $apartment->id)}}">
@@ -19,7 +37,7 @@ if (isset($periodFrom) && isset($periodTo)) {
                 <img src="
                 <?php
                 $mainImage = $apartment->getMainImage();
-                if(isset($mainImage)){
+                if (isset($mainImage)) {
                     echo $apartment->getImagesPath() . $mainImage->filename;
                 }
                 ?>" class="apartment-image-dispay"  />
@@ -31,24 +49,21 @@ if (isset($periodFrom) && isset($periodTo)) {
                 <div class="apartment-description">25m2 / 1-2 {{ __('messages.person') }}</div>
             </div>
             <span class="apartment-description-overview">
-                <?php echo strip_tags($apartment->getdescriptionvalue($lang)); ?>
+<?php echo strip_tags($apartment->getdescriptionvalue($lang)); ?>
             </span>
             <b><span class="description-show-more"><a href="{{ route('apartment', $apartment->id) }}"> {{ __('messages.showmore') }} </a></span></b>
             <!--<div class="apartment-name-more-details">Show more details</div>-->
             <div class="apartment-book-now uppercase">
-                <a href="{{ route('apartment', $apartment->id) }}"><p> {{ __('messages.BookNow') }} +</p></a>
-                <?php
-//                if ($price == 0) {
-//                    echo 'SOLD OUT';
-//                } else {
-//
-//                    if ($isDatesDefined) {
-//                        echo __('Messages.Price') . $price . '€';
-//                    } else {
-//                        echo __('Messages.From') . $price . '€ night';
-//                    }
-//                }
-                ?>
+                <div class="priceText" style="<?php if($isDatesDefined && $price > 0) { echo 'width: min-content;'; } ?>">
+                    <?php echo $priceText ?>
+                </div>
+                <div class="priceAmount">
+                    <?php echo $priceAmount ?>
+                </div>
+                <div class="uppercase" style="display: inline-block; float: right;">
+                    <a href="{{ route('apartment', $apartment->id) }}"><p> {{ __('messages.BookNow') }} +</p></a>
+                </div>
+
             </div>
         </div>
     </div>

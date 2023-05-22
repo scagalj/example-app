@@ -61,7 +61,7 @@ if ($price == 0) {
                     <?php echo $priceAmount ?>
                 </div>
                 <div class="uppercase" style="display: inline-block; float: right;">
-                    <a href="{{ route('apartment', $apartment->id) }}"><p> {{ __('messages.BookNow') }} +</p></a>
+                    <a href="{{ route('apartment', $apartment->id) }}"><p> {{ __('messages.BookNow') }}</p></a>
                 </div>
 
             </div>

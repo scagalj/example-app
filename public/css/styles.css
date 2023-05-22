@@ -487,7 +487,6 @@ body{
 }
 .priceText{
     display: inline-block;
-    float: left;
     font-size: 16pt;
     font-weight: 500;
     color: var(--dark-grey-color-hex);

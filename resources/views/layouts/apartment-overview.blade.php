@@ -24,7 +24,7 @@ if ($price == 0) {
         $priceAmount = $priceCurrency . $price;
         $priceText =  __('messages.TotalPrice');
     } else {
-        $priceText = __('messages.From') . '<span class="mint-color">' . $priceCurrency  . $price . ' / ' . __('messages.Night') . '</span>';
+        $priceText = '<span>' . __('messages.From') . '</span><span class="mint-color" style="display: inline-block;">' . $priceCurrency  . $price . ' / ' . __('messages.Night') . '</span>';
     }
 }
 ?>

@@ -28,7 +28,7 @@ class Apartment extends Model {
      * - list of rooms;  
      * 
      */
-    
+
 //    protected $transient = [
 //        'descriptionit' => null,
 //    ];
@@ -61,18 +61,18 @@ class Apartment extends Model {
     public function apartmentReviews() {
         return $this->hasMany(ApartmentReviews::class);
     }
-    
+
     public function apartmentPrices() {
         return $this->hasMany(ApartmentPrices::class);
     }
-    
-    public function getdescriptionvalue($lang){
+
+    public function getdescriptionvalue($lang) {
         return $this->getDescriptionLang()->getValue($lang);
     }
-    
+
     public function getDescriptionLang() {
         $description = LangController::convertJsonToLanguageField($this->description);
-        return $description ;
+        return $description;
     }
 
     public function getImagesPath() {
@@ -82,11 +82,11 @@ class Apartment extends Model {
     public function getMainImage() {
         return $this->images()->where('mainimage', true)->first();
     }
-    
+
     public function getMainImages() {
         return $this->images()->where('mainimage', true);
     }
-    
+
     public function getOtherImages() {
         return $this->images()->where('mainimage', false)->get();
     }
@@ -94,7 +94,7 @@ class Apartment extends Model {
     public function getImagesByRange($indexFrom, $imageCount = 2) {
         return $this->images()->where('mainimage', false)->get()->slice($indexFrom, $imageCount);
     }
-    
+
     public function getAllImagesToDisplay() {
         $c = collect();
         $mainImages = $this->getMainImage();
@@ -102,7 +102,7 @@ class Apartment extends Model {
         $otherImages = $this->getOtherImages();
         return $c->concat($otherImages);
     }
-    
+
     public function getNumberOfGuests() {
         $roomsWithBeds = $this->getAllRoomsWithBed();
         $guestCounter = 0;
@@ -186,61 +186,65 @@ class Apartment extends Model {
         return $allAccessories;
     }
 
-    public function calculatePrice($periodFrom, $periodTo, $guests){
-        
-        if (!isset($periodFrom)) {
-            $periodFrom = date('d.m.Y');
-        }
-
-        if (!isset($periodTo)) {
-            $periodTo = date('d.m.Y', strtotime($periodFrom . ' +1 day')); // Add one day
-        }
-        
-        if(!isset($guests)){
-            $guests = 1;
-        }
-                    error_log('DATE; 1 ' . $guests . ' - ' . $this->getNumberOfGuests());
-        
-        $priceDivisor = 1;
-        if($guests < $this->getNumberOfGuests()){
-            $priceDivisor = 0.85;
-        }
-                    error_log('DATE; 2 ' . $priceDivisor);
-
-        $dateFrom = Carbon::createFromFormat('d.m.Y', $periodFrom);
-        $dateTo = Carbon::createFromFormat('d.m.Y', $periodTo);
-        
-                    error_log('DATE; 3 ' . $dateFrom . ' - ' . $dateTo);
+    public function calculatePrice($periodFrom, $periodTo, $guests) {
         $amount = 0;
-        
-        while ($dateFrom < $dateTo) {
+        try {
+            // Validate the value...
 
-            $price = $this->calculatePriceForDate($dateFrom);
-            //Ako neki period nema cijenu vrati 0 kao da taj period nije bookabilan.
-            if ($price == null) {
-                return 0;
+            if (!isset($periodFrom)) {
+                $periodFrom = date('d.m.Y');
             }
 
-            $amount += ($price->price * $priceDivisor);
-            $dateFrom->addDay();
+            if (!isset($periodTo)) {
+                $periodTo = date('d.m.Y', strtotime($periodFrom . ' +1 day')); // Add one day
+            }
+
+            if (!isset($guests)) {
+                $guests = 1;
+            }
+            error_log('DATE; 1 ' . $guests . ' - ' . $this->getNumberOfGuests());
+
+            $priceDivisor = 1;
+            if ($guests < $this->getNumberOfGuests()) {
+                $priceDivisor = 0.85;
+            }
+            error_log('DATE; 2 ' . $priceDivisor);
+
+            $dateFrom = Carbon::createFromFormat('d.m.Y', $periodFrom);
+            $dateTo = Carbon::createFromFormat('d.m.Y', $periodTo);
+
+            error_log('DATE; 3 ' . $dateFrom . ' - ' . $dateTo);
+
+
+            while ($dateFrom < $dateTo) {
+
+                $price = $this->calculatePriceForDate($dateFrom);
+                //Ako neki period nema cijenu vrati 0 kao da taj period nije bookabilan.
+                if ($price == null) {
+                    return 0;
+                }
+
+                $amount += ($price->price * $priceDivisor);
+                $dateFrom->addDay();
+            }
+        } catch (\Exception $e) {
+            return 0;
         }
         return $amount;
-        
     }
-    
-    private function calculatePriceForDate($date){
+
+    private function calculatePriceForDate($date) {
         $apartmentPrices = $this->apartmentPrices()->get();
-        foreach($apartmentPrices as $price){
-            if($date->between($price->fromDate, $price->toDate)){
+        foreach ($apartmentPrices as $price) {
+            if ($date->between($price->fromDate, $price->toDate)) {
                 return $price;
             }
         }
         return null;
     }
-    
+
 //    public function getOtherImages() {
 //        return $this->images()->where('mainimage', false);
-
 //        $otherImages = array();
 //        foreach ($otherImages as $this->images => $image) {
 //            if (!$image->mainimage) {
@@ -249,5 +253,4 @@ class Apartment extends Model {
 //        }
 //        return $otherImages;
 //    }
-
 }

@@ -21,10 +21,10 @@ if ($price == 0) {
     $priceText = __('messages.OnRequest');
 } else {
     if ($isDatesDefined) {
-        $priceAmount = $priceCurrency . $price;
+        $priceAmount = $priceCurrency . number_format($price, 2);
         $priceText =  __('messages.TotalPrice');
     } else {
-        $priceText = '<span>' . __('messages.From') . '</span><span class="mint-color" style="display: inline-block;">' . $priceCurrency  . $price . ' / ' . __('messages.Night') . '</span>';
+        $priceText = '<span>' . __('messages.From') . '</span><span class="mint-color" style="display: inline-block;">' . $priceCurrency  . number_format($price, 2) . ' / ' . __('messages.Night') . '</span>';
     }
 }
 ?>

@@ -18,7 +18,7 @@ $priceText = '';
 $priceAmount = '';
 $priceCurrency = ' € ';
 if ($price == 0) {
-    $priceText = __('messages.OnRequest');
+    $priceText = '<span class="mint-color">' .__('messages.OnRequest') . '</span>';
 } else {
     if ($isDatesDefined) {
         $priceAmount = $priceCurrency . number_format($price, 2);

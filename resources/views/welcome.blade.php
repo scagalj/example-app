@@ -25,15 +25,15 @@
                     @csrf
                     <div class="inline-input-date">
                         <span>{{ __('messages.CheckIn')}}:</span>
-                        <input class="date-pickers form-control" type="text" autocomplete="off"  data-provide="datepicker" id="checkIn" name="checkIn" value="{{ Session::get('checkIn') ?? '' }}" required="true">
+                        <input class="date-pickers form-control actual_range" type="text" autocomplete="off"  id="checkIn" name="checkIn" value="{{ Session::get('checkIn') ?? '' }}" required="true">
                     </div>
                     <div class="inline-input-date">
                         <span>{{ __('messages.CheckOut')}}:</span>
-                        <input class="date-pickers form-control" type="text" autocomplete="off"  data-provide="datepicker" id="checkOut" name="checkOut" value="{{ Session::get('checkOut') ?? '' }}" required="true">
+                        <input class="date-pickers form-control actual_range" type="text" autocomplete="off"  data-provide="datepicker" id="checkOut" name="checkOut" value="{{ Session::get('checkOut') ?? '' }}" required="true">
                     </div>
                     <div class="inline-input-date">
                         <span>{{ __('messages.Guests')}}:</span>
-                        <input type="number" step="any"  name="guests" id="guests" min="1" max="2" class="form-control" value="{{ Session::get('guests') ?? '1' }}" required="true"/>
+                        <input type="number" step="any"  name="guests" id="guests" min="1" max="2" class="form-control" value="{{ Session::get('guests') ?? '2' }}" required="true"/>
                     </div>
 
                     <div class="inline-input-date">
@@ -45,7 +45,34 @@
 
         <script>
             $(document).ready(function () {
+
                 $(".date-pickers").datepicker.defaults.format = 'dd.mm.yyyy';
+                $('.date-pickers').datepicker({
+                    startDate: new Date(),
+                    todayHighlight: true,
+                    autoclose: true,
+                })
+
+                $("#checkIn").datepicker({
+                }).on("changeDate", function (e) {
+//                    console.log("Date: " + this.HTML);
+//                    console.log($('#checkOut').data);
+                    $checkInDate = $(e.currentTarget).val();
+                    if($("#checkOut").val() === null || $("#checkOut").val() === undefined || $("#checkOut").val() === ''){
+                        $('#checkOut').val($(e.currentTarget).val());
+                        $("#checkOut").datepicker('update');
+                    }
+                    $checkOutDate = $('#checkOut').val();
+                    if($checkInDate > $checkOutDate){
+                        $('#checkOut').val($(e.currentTarget).val());
+                    }
+                        $('#checkOut').focus();
+//                    console.log($("#checkOut").val());
+
+
+//                    console.dir($checkInDate);
+                });
+
             });
         </script>
         <!---------------HEADER END--------------------->

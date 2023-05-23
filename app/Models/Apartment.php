@@ -189,7 +189,6 @@ class Apartment extends Model {
     public function calculatePrice($periodFrom, $periodTo, $guests) {
         $amount = 0;
         try {
-            // Validate the value...
 
             if (!isset($periodFrom)) {
                 $periodFrom = date('d.m.Y');
@@ -202,18 +201,24 @@ class Apartment extends Model {
             if (!isset($guests)) {
                 $guests = 1;
             }
-            error_log('DATE; 1 ' . $guests . ' - ' . $this->getNumberOfGuests());
+//            error_log('DATE; 1 ' . $guests . ' - ' . $this->getNumberOfGuests());
 
             $priceDivisor = 1;
             if ($guests < $this->getNumberOfGuests()) {
                 $priceDivisor = 0.85;
             }
-            error_log('DATE; 2 ' . $priceDivisor);
+//            error_log('DATE; 2 ' . $priceDivisor);
 
             $dateFrom = Carbon::createFromFormat('d.m.Y', $periodFrom);
             $dateTo = Carbon::createFromFormat('d.m.Y', $periodTo);
 
-            error_log('DATE; 3 ' . $dateFrom . ' - ' . $dateTo);
+            $days = $dateFrom->diffInDays($dateTo);
+            
+            error_log('DATE; 3 ' . $days);
+            if($days < 1 || $days > 190){
+                return 0;
+            }
+            
 
 
             while ($dateFrom < $dateTo) {

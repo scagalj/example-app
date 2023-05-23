@@ -15,7 +15,6 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <!-- Scripts -->
-<!--@vite(['resources/js/app.js'])-->
 <script src="{{ mix('js/app.js') }}" defer></script>
 <script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
 

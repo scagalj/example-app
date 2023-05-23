@@ -55,25 +55,44 @@
 
                 $("#checkIn").datepicker({
                 }).on("changeDate", function (e) {
-//                    console.log("Date: " + this.HTML);
-//                    console.log($('#checkOut').data);
                     $checkInDate = $(e.currentTarget).val();
-                    if($("#checkOut").val() === null || $("#checkOut").val() === undefined || $("#checkOut").val() === ''){
-                        $('#checkOut').val($(e.currentTarget).val());
+                    if ($("#checkOut").val() === null || $("#checkOut").val() === undefined || $("#checkOut").val() === '') {
+                        $selectedDate = $(e.currentTarget).val();
+                        $('#checkOut').val(addDayToDate($selectedDate, 1));
                         $("#checkOut").datepicker('update');
                     }
                     $checkOutDate = $('#checkOut').val();
-                    if($checkInDate > $checkOutDate){
+                    if ($checkInDate > $checkOutDate) {
                         $('#checkOut').val($(e.currentTarget).val());
                     }
-                        $('#checkOut').focus();
-//                    console.log($("#checkOut").val());
-
-
-//                    console.dir($checkInDate);
+                    $('#checkOut').focus();
                 });
 
             });
+
+            function addDayToDate($date, $days) {
+                $values = $date.split('.');
+                $day = $values[0];
+                $month = $values[1];
+                $year = $values[2];
+                $dateS = $month + "-" + $day + "-" + $year;
+                $dateO = new Date($dateS);
+                $dateO.setDate($dateO.getDate() + $days);
+
+                $newDay = $dateO.getDate();
+                $newMonth = ($dateO.getMonth() + 1);
+                $newYear = $dateO.getFullYear();
+
+
+                if ($newDay < 10){
+                    $newDay = "0" + $newDay.toString();
+                }
+                if ($newMonth < 10){
+                    $newMonth = "0" + $newMonth.toString();
+                }
+                return $newDay.toString() + "." + $newMonth.toString() + "." + $newYear.toString();
+
+            }
         </script>
         <!---------------HEADER END--------------------->
 

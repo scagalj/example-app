@@ -199,7 +199,7 @@ class Apartment extends Model {
             }
 
             if (!isset($guests)) {
-                $guests = 1;
+                $guests = 2;
             }
 //            error_log('DATE; 1 ' . $guests . ' - ' . $this->getNumberOfGuests());
 

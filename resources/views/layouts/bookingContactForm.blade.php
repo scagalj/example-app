@@ -10,13 +10,25 @@
 
 
     <div class="form-group mt-4 mb-2">
-        <div class="input-date">
-            <span>{{ __('messages.CheckIn')}}:</span>
-            <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off"  data-provide="datepicker" id="checkIn" name="checkIn" value="{{ Session::get('checkIn') ?? '' }}" required="true">
-        </div>
-        <div class="input-date">
-            <span>{{ __('messages.CheckOut')}}:</span>
-            <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off" data-provide="datepicker" id="checkOut" name="checkOut" value="{{ Session::get('checkOut') ?? '' }}" required="true">
+    
+   
+        <div style="padding-right: 5px;">
+            <span>Check In:</span>
+            <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off" data-provide="datepicker" id="checkIn" name="checkIn" value="31.05.2023" required="true">
+  </div><div style="padding-left: 5px;">
+<span>Check Out:</span>
+<input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off" data-provide="datepicker" id="checkOut" name="checkOut" value="08.06.2023" required="true">
+        </div></div>
+    
+         <div class="input-date" style="width: 100%;display: inline-flex;">
+             <div style="padding-right: 5px;">
+                <span>{{ __('messages.CheckIn')}}:</span>
+                <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off"  data-provide="datepicker" id="checkIn" name="checkIn" value="{{ Session::get('checkIn') ?? '' }}" required="true">
+             </div>
+             <div style="padding-left: 5px;">
+                <span>{{ __('messages.CheckOut')}}:</span>
+                <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off" data-provide="datepicker" id="checkOut" name="checkOut" value="{{ Session::get('checkOut') ?? '' }}" required="true">
+             </div>
         </div>
         <div class="input-date">
             <span>{{ __('messages.FirstAndLastName')}}:</span>

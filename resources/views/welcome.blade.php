@@ -75,7 +75,7 @@
                 $day = $values[0];
                 $month = $values[1];
                 $year = $values[2];
-                $dateS = $month + "-" + $day + "-" + $year;
+                $dateS = $year + "-" + $month + "-" + $day;
                 $dateO = new Date($dateS);
                 $dateO.setDate($dateO.getDate() + $days);
 

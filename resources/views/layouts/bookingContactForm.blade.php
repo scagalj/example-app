@@ -28,7 +28,7 @@
             <span>{{ __('messages.YourEMail')}}:</span>
             <input class="form-control datePickerBtn inputFies" type="text" id="mail" name="email" value="" required="true">
         </div>
-        <a class="collapsed" data-toggle="collapse" href="#addNoteCollapse" role="button" aria-expanded="false" aria-controls="addNoteCollapse">
+        <a class="collapsed" data-toggle="collapse" href="#addNoteCollapse" role="button" aria-expanded="false" aria-controls="addNoteCollapse" style="text-decoration: none;">
         + {{ __('messages.AddNote')}}
         </a>
         <div id="addNoteCollapse" class="input-date collapse">

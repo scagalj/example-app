@@ -62,7 +62,7 @@
                         $("#checkOut").datepicker('update');
                     }
                     $checkOutDate = $('#checkOut').val();
-                    if ($checkInDate > $checkOutDate) {
+                    if (cretaeDateFromString($checkInDate) > cretaeDateFromString($checkOutDate)) {
                         $('#checkOut').val($(e.currentTarget).val());
                     }
                     $('#checkOut').focus();
@@ -71,12 +71,7 @@
             });
 
             function addDayToDate($date, $days) {
-                $values = $date.split('.');
-                $day = $values[0];
-                $month = $values[1];
-                $year = $values[2];
-                $dateS = $year + "-" + $month + "-" + $day;
-                $dateO = new Date($dateS);
+                $dateO = cretaeDateFromString($date);
                 $dateO.setDate($dateO.getDate() + $days);
 
                 $newDay = $dateO.getDate();
@@ -91,8 +86,19 @@
                     $newMonth = "0" + $newMonth.toString();
                 }
                 return $newDay.toString() + "." + $newMonth.toString() + "." + $newYear.toString();
-
             }
+            
+            function cretaeDateFromString($dateAsString){
+                
+                $values = $dateAsString.split('.');
+                $day = $values[0];
+                $month = $values[1];
+                $year = $values[2];
+                $dateS = $year + "-" + $month + "-" + $day;
+                $dateO = new Date($dateS);
+                return $dateO;
+            }
+            
         </script>
         <!---------------HEADER END--------------------->
 

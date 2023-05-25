@@ -65,6 +65,7 @@
                     if (cretaeDateFromString($checkInDate) > cretaeDateFromString($checkOutDate)) {
                         $selectedDate = $(e.currentTarget).val();
                         $('#checkOut').val(addDayToDate($selectedDate, 1));
+                        $("#checkOut").datepicker('update');
                     }
                     $('#checkOut').focus();
                 });

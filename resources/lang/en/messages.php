@@ -105,4 +105,5 @@ return [
     'TotalPrice' => 'Total price',
     'Total' => 'Total',
     'Night' => 'Night',
+    'AddNote' => 'Add note',
 ];

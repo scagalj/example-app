@@ -20,7 +20,7 @@
         </div>
         <div class="input-date">
             <span>{{ __('messages.EmailAdress')}}:</span>
-            <input class="form-control datePickerBtn inputFies" type="text" id="mail" name="email" value="" required="true">
+            <input class="form-control datePickerBtn inputFies" type="text" id="mail" name="email" value="" inputmode="email" required="true">
         </div>
 
 <!--        <div class="input-date">

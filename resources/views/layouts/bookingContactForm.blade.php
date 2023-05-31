@@ -65,7 +65,7 @@ if ($price == 0) {
         </div>
         <div class="input-date p-t-b-5">
             <span>{{ __('messages.YourEMail')}}:</span>
-            <input class="form-control datePickerBtn inputFies" type="text" id="mail" name="email" value="" required="true">
+            <input class="form-control datePickerBtn inputFies" type="text" id="mail" name="email" inputmode="email" value="" required="true">
         </div>
         <a class="collapsed addNote" data-toggle="collapse" href="#addNoteCollapse" role="button" aria-expanded="false" aria-controls="addNoteCollapse">
             + {{ __('messages.AddNote')}}

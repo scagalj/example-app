@@ -48,9 +48,7 @@ class ApartmentController extends BaseController {
     }
 
     public function update(Request $request, $house_id, $id) {
-        error_log('Pozvana update price.');
-
-
+//        error_log('Pozvana update price.');
 
         $apartment = Apartment::find($id);
         $apartment->name = $request->input('name');
@@ -84,7 +82,7 @@ class ApartmentController extends BaseController {
     }
 
     public function deletePrice($apartment_id, $id) {
-        error_log('Pozvana delete price.');
+//        error_log('Pozvana delete price.');
 
         $apartment = Apartment::find($apartment_id);
         $price = ApartmentPrices::find($id);

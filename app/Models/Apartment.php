@@ -214,7 +214,7 @@ class Apartment extends Model {
 
             $days = $dateFrom->diffInDays($dateTo);
             
-            error_log('DATE; 3 ' . $days);
+//            error_log('DATE; 3 ' . $days);
             if($days < 1 || $days > 365){
                 return 0;
             }

@@ -17,6 +17,7 @@
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}" defer></script>
 <script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery-3.7.0.min.js') }}"></script>
 
 <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css" >
@@ -26,10 +27,10 @@
 <!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>-->
 
 
-<script
+<!--<script
     src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
     integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
-crossorigin="anonymous"></script>
+crossorigin="anonymous"></script>-->
 
 
 

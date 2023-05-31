@@ -38,6 +38,7 @@ Route::get('/', function () {
 
 
 Route::post('/', [ApartmentController::class, 'updateSearchCriteria'])->name('apartment.searchCriteria.update');
+Route::get('/apartment/price', [ApartmentController::class, 'calculatePriceAjax'])->name('apartment.price');
 
 
 Route::get('/apartment/{apartment}', [ApartmentController::class, 'show'])->name('apartment');

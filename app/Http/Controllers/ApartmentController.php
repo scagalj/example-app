@@ -236,5 +236,31 @@ class ApartmentController extends BaseController {
         
         return back();
     }
+    
+    public function calculatePriceAjax(Request $request){
+        
+        $apartment_id = $request->input('apartment_id');
+        $periodFrom = $request->input('period_from');
+        $periodTo = $request->input('period_to');
+        $guests = $request->input('guests');
+        
+        $request->session()->put('checkIn', $periodFrom);
+        $request->session()->put('checkOut', $periodTo);
+        $request->session()->put('guests', $guests);
+        
+        $priceCurrency = ' € ';
+        
+        $apartment = Apartment::find($apartment_id);
+        
+        $price = $apartment->calculatePrice($periodFrom, $periodTo, $guests);
+        $formattedPrice =  number_format($price, 2);
+        $response = $priceCurrency . $formattedPrice;
+        if($price == 0){
+            $response = __('messages.OnRequest');
+        }
+        return response()->json($response);
+
+        
+    }
 
 }

@@ -14,6 +14,7 @@
             <file>file:/C:/Users/Stjepan/example-app/app/Models/Apartment.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/views/layouts/bookingContactForm.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/app/Models/Room.php</file>
+            <file>file:/C:/Users/Stjepan/example-app/package.json</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/en/messages.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/de/messages.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/cz/messages.php</file>
@@ -27,6 +28,7 @@
             <file>file:/C:/Users/Stjepan/example-app/resources/views/layouts/footer.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/cz/accessories.php</file>
             <file>file:/C:/Users/Stjepan/example-app/database/migrations/2023_05_17_184700_create_apartmentprices_table.php</file>
+            <file>file:/C:/Users/Stjepan/example-app/public/js/scripts.js</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/views/layouts/reviews.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/fr/messages.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/pl/accessories.php</file>
@@ -37,10 +39,13 @@
             <file>file:/C:/Users/Stjepan/example-app/resources/views/layouts/header.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/views/language/transatablefields.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/it/messages.php</file>
+            <file>file:/C:/Users/Stjepan/example-app/resources/sass/app.scss</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/views/apartment.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/app/Http/Controllers/ApartmentPricesController.php</file>
+            <file>file:/C:/Users/Stjepan/example-app/webpack.mix.js</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/views/layouts/navbar.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/app/Http/Controllers/ApartmentController.php</file>
+            <file>file:/C:/Users/Stjepan/example-app/package-lock.json</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/sp/accessories.php</file>
         </group>
     </open-files>

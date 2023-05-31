@@ -284,7 +284,7 @@ $lang = LangController::getLanguage();
                     <div class="mt-5">
                         <form action="{{route('contact.booking.request', ['apartment_id' => $apartment->id]) }}" method="post" >
                             @csrf
-                            @include('/layouts/bookingContactForm')
+                            @include('/layouts/bookingContactForm',['apartment' => $apartment])
                         </form>
                     </div>
                 </div>

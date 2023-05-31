@@ -10,6 +10,8 @@
     <p>Client: {{ $details->get('firstName'); }}</p>
     <p>Apartment: {{ $details->get('apartmentName'); }}</p>
     <p>Period: {{ $details->get('checkIn'); }} -> {{ $details->get('checkOut'); }}</p>
+    <p>Guests: {{ $details->get('guests'); }}</p>
+    <p>Price: {{ $details->get('price'); }}</p>
     <p>Contact mail: {{ $details->get('email'); }} </p>
     <p>Note: {{ $details->get('note'); }} </p>
     

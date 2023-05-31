@@ -106,4 +106,7 @@ return [
     'Total' => 'Total',
     'Night' => 'Night',
     'AddNote' => 'Add note',
+    'FinalCleaning' => 'Final cleaning',
+    'IncludedInPrice' => 'Included in price',
+    'TouristTax' => 'Tourist tax',
 ];

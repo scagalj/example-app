@@ -72,6 +72,17 @@ a:hover, .footer-wrapper a:hover{
     font-weight: 600 !important;
 }
 
+.p-t-b-5{
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+.p-t-5{
+    padding-top: 5px !important;
+}
+.p-b-5{
+    padding-bottom: 5px !important;
+}
+
 .imageHeaderFontSize{
     font-size: 8vw;
 }
@@ -886,6 +897,15 @@ body{
     padding: 10px !important;
 }
 
+.addNote{
+    text-decoration: none;
+    display: block;
+    text-decoration: none;
+    padding-top: 10px;
+    font-size: 12pt;
+    font-weight: 500;
+}
+
 .makeRequestBtn{
     display: block;
     width: 100%;
@@ -1240,3 +1260,30 @@ body{
 }
 
 /*--- END PrivacyPolicy--*/
+
+.pricedetails *{
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.colname{
+    /*font-weight: 500;*/
+    font-size: 11pt;
+}
+
+.colvalue{
+    font-size: 10pt;
+    font-style: italic;
+    text-align: right;
+}
+
+.priceColName{
+    font-weight: 500;
+    font-size: 14pt;
+}
+
+.priceColValue{
+    font-weight: 500;
+    font-size: 14pt;
+    text-align: right;
+}

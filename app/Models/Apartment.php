@@ -205,7 +205,7 @@ class Apartment extends Model {
 
             $priceDivisor = 1;
             if ($guests < $this->getNumberOfGuests()) {
-                $priceDivisor = 0.85;
+                $priceDivisor = 0.90;
             }
 //            error_log('DATE; 2 ' . $priceDivisor);
 
@@ -215,12 +215,10 @@ class Apartment extends Model {
             $days = $dateFrom->diffInDays($dateTo);
             
             error_log('DATE; 3 ' . $days);
-            if($days < 1 || $days > 190){
+            if($days < 1 || $days > 365){
                 return 0;
             }
             
-
-
             while ($dateFrom < $dateTo) {
 
                 $price = $this->calculatePriceForDate($dateFrom);

@@ -257,7 +257,7 @@ $lang = LangController::getLanguage();
                         <div class="accessories">
                             <div class="row">
                                 @foreach($allRoomAccessories as $roomAccessories)
-                                <div class="col-6 accessoriesEntry">
+                                <div class="col-md-6 col-xs-12 col-sm-6 accessoriesEntry">
                                     <span class="icon">
                                         <?php
                                         if (!empty($roomAccessories->accessories->iconPath)) {

@@ -841,7 +841,7 @@ body{
     padding-top: 4px;
     padding-bottom: 10px;
     display: inline-flex;
-    height: 50px;
+    height: 52px;
 }
 .accessoriesEntry > *{
     padding-right: 10px;
@@ -854,10 +854,11 @@ body{
 }
 
 .textDescription{
-    margin-top: -5px;
+    margin-top: -8px;
     font-size: 10pt;
     display: block;
     font-style: italic;
+    line-height: 15px;
 }
 
 .accessoriedDescriptionInfo{

@@ -25,11 +25,11 @@
                     @csrf
                     <div class="inline-input-date">
                         <span>{{ __('messages.CheckIn')}}:</span>
-                        <input class="date-pickers form-control actual_range" type="text" autocomplete="off"  id="checkIn" name="checkIn" value="{{ Session::get('checkIn') ?? '' }}" required="true">
+                        <input class="date-pickers form-control actual_range" type="text" autocomplete="off" inputmode="none" id="checkIn" name="checkIn" value="{{ Session::get('checkIn') ?? '' }}" required="true">
                     </div>
                     <div class="inline-input-date">
                         <span>{{ __('messages.CheckOut')}}:</span>
-                        <input class="date-pickers form-control actual_range" type="text" autocomplete="off"  data-provide="datepicker" id="checkOut" name="checkOut" value="{{ Session::get('checkOut') ?? '' }}" required="true">
+                        <input class="date-pickers form-control actual_range" type="text" autocomplete="off" inputmode="none" data-provide="datepicker" id="checkOut" name="checkOut" value="{{ Session::get('checkOut') ?? '' }}" required="true">
                     </div>
                     <div class="inline-input-date">
                         <span>{{ __('messages.Guests')}}:</span>

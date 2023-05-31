@@ -43,11 +43,11 @@ if ($price == 0) {
         <div class="input-date p-t-b-5" style="width: 100%;display: inline-flex;">
             <div style="padding-right: 5px;">
                 <span>{{ __('messages.CheckIn')}}:</span>
-                <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off"  data-provide="datepicker" id="checkIn" name="checkIn" value="{{ Session::get('checkIn') ?? '' }}" required="true">
+                <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off" inputmode="none" data-provide="datepicker" id="checkIn" name="checkIn" value="{{ Session::get('checkIn') ?? '' }}" required="true">
             </div>
             <div style="padding-left: 5px;">
                 <span>{{ __('messages.CheckOut')}}:</span>
-                <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off" data-provide="datepicker" id="checkOut" name="checkOut" value="{{ Session::get('checkOut') ?? '' }}" required="true">
+                <input class="date-pickers form-control datePickerBtn inputFies" type="text" autocomplete="off" inputmode="none" data-provide="datepicker" id="checkOut" name="checkOut" value="{{ Session::get('checkOut') ?? '' }}" required="true">
             </div>
         </div>
 

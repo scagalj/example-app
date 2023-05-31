@@ -20,6 +20,7 @@ and open the template in the editor.
     --mint--lowlight-color-hex: #23b17d;
     --mint-light-color-hex: #12c584;
     --dark-grey-color-hex: #444444;
+    --light-grey-color-hex: #8b8b8b;
 
 }
 h4{
@@ -859,6 +860,7 @@ body{
     display: block;
     font-style: italic;
     line-height: 15px;
+    color: var(--light-grey-color-hex);
 }
 
 .accessoriedDescriptionInfo{

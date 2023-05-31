@@ -841,6 +841,7 @@ body{
     padding-top: 4px;
     padding-bottom: 10px;
     display: inline-flex;
+    height: 50px;
 }
 .accessoriesEntry > *{
     padding-right: 10px;
@@ -850,6 +851,13 @@ body{
 .iconDescrption{
     font-size: 13pt;
     font-weight: 300;
+}
+
+.textDescription{
+    margin-top: -5px;
+    font-size: 10pt;
+    display: block;
+    font-style: italic;
 }
 
 .accessoriedDescriptionInfo{

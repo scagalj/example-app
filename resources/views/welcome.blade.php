@@ -14,7 +14,7 @@
                 <!--                <div id="headerContent" class="headerImageContent">
                                     <div class="container-fluid">
                                         <div class="headerName">
-                                            <h1 class="whiteColor headerTitle">{{ __('messages.ApartmentsNature') }}</h1>
+                                            <h1 class="whiteColor">{{ __('messages.ApartmentsNature') }}</h1>
                                         </div>
                                     </div>
                                 </div>-->
@@ -221,7 +221,7 @@
             <!--                <div id="headerContent" class="headerImageContent">
                                 <div class="container-fluid">
                                     <div class="headerName">
-                                        <h1 class="whiteColor headerTitle">{{ __('messages.ApartmentsNature') }}</h1>
+                                        <h1 class="whiteColor">{{ __('messages.ApartmentsNature') }}</h1>
                                     </div>
                                 </div>
                             </div>-->

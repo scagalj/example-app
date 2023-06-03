@@ -8,6 +8,7 @@
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/it/accessories.php</file>
             <file>file:/C:/Users/Stjepan/example-app/app/Http/Controllers/ApartmentReviewsController.php</file>
             <file>file:/C:/Users/Stjepan/example-app/app/Http/Controllers/RoomController.php</file>
+            <file>file:/C:/Users/Stjepan/example-app/resources/views/emails/bookingRequest.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/sp/messages.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/views/layouts/apartment-overview.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/routes/web.php</file>
@@ -28,7 +29,6 @@
             <file>file:/C:/Users/Stjepan/example-app/resources/views/layouts/footer.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/cz/accessories.php</file>
             <file>file:/C:/Users/Stjepan/example-app/database/migrations/2023_05_17_184700_create_apartmentprices_table.php</file>
-            <file>file:/C:/Users/Stjepan/example-app/public/js/scripts.js</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/views/layouts/reviews.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/fr/messages.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/pl/accessories.php</file>
@@ -37,8 +37,10 @@
             <file>file:/C:/Users/Stjepan/example-app/resources/views/welcome.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/database/migrations/2023_02_26_153537_create_roomaccessories_table.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/views/layouts/header.blade.php</file>
+            <file>file:/C:/Users/Stjepan/example-app/resources/views/contactus.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/views/language/transatablefields.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/it/messages.php</file>
+            <file>file:/C:/Users/Stjepan/example-app/app/Mail/BookingRequestMail.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/sass/app.scss</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/views/apartment.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/app/Http/Controllers/ApartmentPricesController.php</file>
@@ -46,6 +48,8 @@
             <file>file:/C:/Users/Stjepan/example-app/resources/views/layouts/navbar.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/app/Http/Controllers/ApartmentController.php</file>
             <file>file:/C:/Users/Stjepan/example-app/package-lock.json</file>
+            <file>file:/C:/Users/Stjepan/example-app/app/Http/Controllers/BookingRequestController.php</file>
+            <file>file:/C:/Users/Stjepan/example-app/resources/views/layouts/informationContactForm.blade.php</file>
             <file>file:/C:/Users/Stjepan/example-app/resources/lang/sp/accessories.php</file>
         </group>
     </open-files>

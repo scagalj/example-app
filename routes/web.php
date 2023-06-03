@@ -85,6 +85,11 @@ Route::get('/privacypolicy', function () {
     return view('privacypolicy', compact('lang'));
 })->name('privacypolicy');
 
+Route::get('/selfcheckin', function () {
+    $lang = LangController::getLanguage();
+    return view('selfcheckin', compact('lang'));
+})->name('selfcheckin');
+
 Route::post('/contactus', [BookingRequestController::class, 'sendInformationRequest'])->name('contact.information.request');
 Route::post('/apartment/{apartment_id}', [BookingRequestController::class, 'sendBookingRequest'])->name('contact.booking.request');
 

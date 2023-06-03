@@ -246,17 +246,20 @@ class ApartmentController extends BaseController {
         $request->session()->put('checkOut', $periodTo);
         $request->session()->put('guests', $guests);
         
-        $priceCurrency = ' € ';
         
         $apartment = Apartment::find($apartment_id);
         
         $price = $apartment->calculatePrice($periodFrom, $periodTo, $guests);
-        $formattedPrice =  number_format($price, 2);
-        $response = $priceCurrency . $formattedPrice;
-        if($price == 0){
-            $response = __('messages.OnRequest');
-        }
-        return response()->json($response);
+        
+        $priceAmountTag = $apartment->getPriceAmountTextForApartment(true, $price);
+        $priceTextTag = $apartment->getPriceValueTextForApartment(true, $price);
+        
+        $data = [
+            'priceAmountTag' => $priceAmountTag,
+            'priceTextTag' => $priceTextTag,
+        ];
+
+        return response()->json($data);
 
         
     }

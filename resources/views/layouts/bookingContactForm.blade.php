@@ -12,20 +12,9 @@ if (isset($periodFrom) && isset($periodTo)) {
     $price = $apartment->calculatePrice(null, null, $guests);
 }
 
-$priceText = '';
-$priceAmount = '';
-$priceCurrency = ' € ';
-if ($price == 0) {
-    $priceText = '<span>' . __('messages.OnRequest') . '</span>';
-} else {
-    if ($isDatesDefined) {
-        $priceAmount = $priceCurrency . number_format($price, 2);
-        $priceText = __('messages.TotalPrice');
-    } else {
-        $priceText = __('messages.From');
-        $priceAmount = $priceCurrency . number_format($price, 2) . ' / ' . __('messages.Night');
-    }
-}
+$priceText = $apartment->getPriceValueTextForApartment($isDatesDefined, $price);
+$priceAmount = $apartment->getPriceAmountTextForApartment($isDatesDefined, $price);
+
 ?>
 
 <div class="requestBookingContainer">
@@ -94,7 +83,9 @@ if ($price == 0) {
         <hr style="padding: 0px; margin-top: 10px; margin-bottom: 10px;"/>
         
         <div class="priceColName col-7">
+            <span id="priceTextVal">
             {{ $priceText }}
+            </span>
         </div>
         <div class="priceColValue col-5 uppercase">
             <span id="priceAmountVal">{{ $priceAmount }}</span>
@@ -102,6 +93,7 @@ if ($price == 0) {
     </div>
 
     <input id="apartmentId_input" type="hidden" value="{{ $apartment->id }}" name="apartmentId_input" />
+    {{-- Kad saljemo email da imamo zapis i o iznosu bookinga --}}
     <input id="apartmentPrice_input" type="hidden" value="{{ $priceAmount }}" name="apartmentPrice_input" />
 
     <div class=" uppercase input-date">
@@ -166,8 +158,9 @@ if ($price == 0) {
                 guests: $guests
             },
             success: function (response) {
-                $('#priceAmountVal').text(response);
-                $('#apartmentPrice_input').val(response);
+                $('#priceAmountVal').text(response.priceAmountTag);
+                $('#priceTextVal').text(response.priceTextTag);
+                $('#apartmentPrice_input').val(response.priceAmountTag);
             },
             error: function (xhr, status, error) {
                 console.log('ERROR: ' + error + " status: " + status);

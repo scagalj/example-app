@@ -245,6 +245,22 @@ class Apartment extends Model {
         }
         return null;
     }
+    
+    public function getPriceAmountTextForApartment($isDatesDefined, $price){
+        $priceCurrency = ' € ';
+        if ($price != 0) {
+            return $isDatesDefined ? $priceCurrency . number_format($price, 2) : $priceCurrency . number_format($price, 2) . ' / ' . __('messages.Night');
+        }
+        return '';
+    }
+    
+    public function getPriceValueTextForApartment($isDatesDefined, $price) {
+        if ($price == 0) {
+            return __('messages.OnRequest');
+        } else {
+            return $isDatesDefined ? __('messages.TotalPrice') :__('messages.From') ;
+        }
+    }
 
 //    public function getOtherImages() {
 //        return $this->images()->where('mainimage', false);

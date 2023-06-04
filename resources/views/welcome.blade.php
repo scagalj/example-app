@@ -172,8 +172,8 @@
                 <!--<h2>Accommodation in Omiš</h2>-->
                 <!--</div>-->
                 <div class="row gx-5">
-                    @include('/layouts/apartment-overview',['apartment' => $apartment1])
                     @include('/layouts/apartment-overview',['apartment' => $apartment2])
+                    @include('/layouts/apartment-overview',['apartment' => $apartment1])
                     @include('/layouts/apartment-overview',['apartment' => $apartment3])
                     @include('/layouts/apartment-overview',['apartment' => $apartment4])
                 </div>

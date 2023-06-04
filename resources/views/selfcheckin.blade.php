@@ -101,7 +101,7 @@
                         On the first floor, you will find the following accommodation units:
                     </p>
                     <ul>
-                        <li>Studio apartment 2(A2)</li>
+                        <li>Studio apartment 1(A1)</li>
                         <li>Studio apartment 5(A5)</li>
                     </ul>
                     <p class="text-justify pt-4">
@@ -121,7 +121,7 @@
                         On the second floor, you will find the following accommodation units:
                     </p>
                     <ul>
-                        <li>Studio apartment 1(A1)</li>
+                        <li>Studio apartment 2(A2)</li>
                         <li>Studio apartment 3(A3)</li>
                         <li>Studio apartment 4(A4)</li>
                         <li>Studio apartment 6(A6)</li>

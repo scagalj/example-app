@@ -265,7 +265,7 @@ $lang = LangController::getLanguage();
                                         }
                                         ?>
 
-                                    </span><span class="iconDescrption">{{ __('accessories.'.$roomAccessories->accessories->name) }}<br/><span class="textDescription">{{ $roomAccessories->accessories->description }}</span></span> 
+                                    </span><span title="{{ $roomAccessories->accessories->popular }}" class="iconDescrption">{{ __('accessories.'.$roomAccessories->accessories->name) }}<br/><span class="textDescription">{{ $roomAccessories->accessories->description }}</span></span> 
                                     <?php
 //                                    if (!empty($roomAccessories->accessories->description)) {
 //                                        echo '<span><i class="fa fa-info-circle accessoriedDescriptionInfo" title="' . __('accessories.' . $roomAccessories->accessories->description) . '" aria-hidden="true"></i></span>';

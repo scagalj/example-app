@@ -172,7 +172,7 @@ class Apartment extends Model {
         $popularAccessories = collect();
         $otherAccessories = collect();
         foreach ($allAccessories as $roomaccessories) {
-            if ($roomaccessories->accessories->popular == 'true') {
+            if (filter_var($roomaccessories->accessories->popular, FILTER_VALIDATE_BOOLEAN)) {
                 $popularAccessories->add($roomaccessories);
             } else {
                 $otherAccessories->add($roomaccessories);
@@ -214,12 +214,12 @@ class Apartment extends Model {
             $dateTo = Carbon::createFromFormat('d.m.Y', $periodTo);
 
             $days = $dateFrom->diffInDays($dateTo);
-            
+
 //            error_log('DATE; 3 ' . $days);
-            if($days < 1 || $days > 365){
+            if ($days < 1 || $days > 365) {
                 return 0;
             }
-            
+
             while ($dateFrom < $dateTo) {
 
                 $price = $this->calculatePriceForDate($dateFrom);
@@ -246,20 +246,20 @@ class Apartment extends Model {
         }
         return null;
     }
-    
-    public function getPriceAmountTextForApartment($isDatesDefined, $price){
+
+    public function getPriceAmountTextForApartment($isDatesDefined, $price) {
         $priceCurrency = ' € ';
         if ($price != 0) {
             return $isDatesDefined ? $priceCurrency . number_format($price, 2) : $priceCurrency . number_format($price, 2) . ' / ' . __('messages.Night');
         }
         return '';
     }
-    
+
     public function getPriceValueTextForApartment($isDatesDefined, $price) {
         if ($price == 0) {
             return __('messages.OnRequest');
         } else {
-            return $isDatesDefined ? __('messages.TotalPrice') :__('messages.From') ;
+            return $isDatesDefined ? __('messages.TotalPrice') : __('messages.From');
         }
     }
 

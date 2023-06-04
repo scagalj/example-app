@@ -49,7 +49,7 @@ $priceAmount = $apartment->getPriceAmountTextForApartment($isDatesDefined, $pric
 
             <div class="input-date" style="width: 90px;">
                 <span>{{ __('messages.Guests')}}:</span>
-                <input type="number" step="any"  name="guests" id="guests" min="1" max="2" class="form-control datePickerBtn inputFies" value="{{ Session::get('guests') ?? '2' }}" required="true"/>
+                <input type="number" step="any"  name="guests" id="guests" min="1" max="{{ $apartment->getNumberOfGuests() }}" class="form-control datePickerBtn inputFies" value="{{ Session::get('guests') ?? '2' }}" required="true"/>
             </div>
         </div>
         <div class="input-date p-t-b-5">

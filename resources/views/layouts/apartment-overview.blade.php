@@ -46,7 +46,7 @@ if ($price == 0) {
         <div class="apartment-name-wrapper">
             <div class="apartment-name">
                 <h3>{{  __('messages.' . $apartment->name) }} </h3>
-                <div class="apartment-description">25m2 / 1-2 {{ __('messages.person') }}</div>
+                <div class="apartment-description">25m2 / 1-{{ $apartment->getNumberOfGuests()}} {{ __('messages.person') }}</div>
             </div>
             <span class="apartment-description-overview">
                 <?php echo strip_tags($apartment->getdescriptionvalue($lang)); ?>

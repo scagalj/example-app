@@ -199,13 +199,14 @@ class Apartment extends Model {
             }
 
             if (!isset($guests)) {
-                $guests = 2;
+                $guests = $this->getNumberOfGuests();
             }
 //            error_log('DATE; 1 ' . $guests . ' - ' . $this->getNumberOfGuests());
 
             $priceDivisor = 1;
             if ($guests < $this->getNumberOfGuests()) {
-                $priceDivisor = 0.90;
+//                $priceDivisor = 0.90;
+                $priceDivisor = 1;
             }
 //            error_log('DATE; 2 ' . $priceDivisor);
 

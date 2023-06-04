@@ -279,9 +279,9 @@ body{
     .priceAmount {
         font-size: 17pt !important;
         padding-left: 5px !important;
-        
+
     }
-    
+
     .priceText{
         width: 100% !important;
         display: inline !important;
@@ -290,9 +290,9 @@ body{
         float: none !important;
         display: block !important;
         text-align: center;
-        padding-top: 5px !important;
+        padding-top: 30px !important;
     }
-    
+
 
 }
 
@@ -513,7 +513,7 @@ body{
 }
 .priceText{
     display: inline-block;
-    font-size: 16pt;
+    font-size: 15pt;
     font-weight: 500;
     color: var(--dark-grey-color-hex);
     width:50%;
@@ -532,8 +532,6 @@ body{
 .apartment-book-now a{
     text-decoration: none !important;
     display: inline;
-    font-size: 16pt;
-    font-weight: 500;
 }
 
 .apartment-book-now .price{
@@ -1269,6 +1267,22 @@ body{
 
 /*--- END PrivacyPolicy--*/
 
+.showMoreBtn{
+    padding: 10px 50px;
+    border: 1px solid var(--mint-color-hex);;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 13pt;
+    color: var(--mint-color-hex);
+}
+
+.showMoreBtn:hover{
+    cursor: pointer;
+    background: var(--mint-color-hex);
+    color: white;
+}
+
+
 .pricedetails *{
     padding-top: 7px;
     padding-bottom: 7px;
@@ -1294,4 +1308,18 @@ body{
     font-weight: 500;
     font-size: 14pt;
     text-align: right;
+}
+
+.booknowBtn{
+    border: 1px solid var(--mint-color-hex);
+    padding: 8px 20px;
+    color: var(--mint-color-hex) !important;
+    display: inline-block;
+    font-size: 13pt;
+    font-weight: 500;
+}
+
+.booknowBtn:hover{
+    color: white !important;
+    background: var(--mint-color-hex);
 }

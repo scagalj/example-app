@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
-use App\Models\Apartment;
-use App\Models\Room;
-use App\Models\House;
 use App\Http\Controllers\ApartmentController;
 use App\Http\Controllers\RoomAccessoriesController;
 use App\Http\Controllers\AmenitiesController;
@@ -38,7 +35,10 @@ Route::get('/', function () {
 
 
 Route::post('/', [ApartmentController::class, 'updateSearchCriteria'])->name('apartment.searchCriteria.update');
+
+//----AJAX REQUEST-----------
 Route::get('/apartment/price', [ApartmentController::class, 'calculatePriceAjax'])->name('apartment.price');
+Route::get('/apartment/overview', [ApartmentController::class, 'renderApartmentOverviewAjax'])->name('apartment.overview');
 
 
 Route::get('/apartment/{apartment}', [ApartmentController::class, 'show'])->name('apartment');

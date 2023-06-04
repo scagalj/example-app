@@ -260,8 +260,41 @@ class ApartmentController extends BaseController {
         ];
 
         return response()->json($data);
-
-        
     }
 
+    public function renderApartmentOverviewAjax(Request $request){
+        
+        $loaded = $request->input('loaded');
+        $loadMore= $request->input('loadMore');
+//                    error_log('OUTPUT:' . $content);
+        
+        if ($loaded == 'max' || $loadMore == 'false') {
+            $data = [
+                'content' => '',
+                'loaded' => 'max',
+                'loadMore' => 'false',
+            ];
+            return response()->json($data);
+        }
+
+        $apartmen5 = Apartment::find(5);
+        $apartment6 = Apartment::find(6);
+        $apartment7 = Apartment::find(7);
+        
+        $content1 = view('layouts.apartment-overview', ['apartment' => $apartmen5, 'lang' => LangController::getLanguage()])->render();
+        $content2 = view('layouts.apartment-overview', ['apartment' => $apartment6, 'lang' => LangController::getLanguage()])->render();
+        $content3 = view('layouts.apartment-overview', ['apartment' => $apartment7, 'lang' => LangController::getLanguage()])->render();
+        
+        $data = [
+            'content' => $content1 . $content2 . $content3,
+            'loaded' => 'max',
+            'loadMore' => 'false',
+        ];
+        
+        return response()->json($data);
+        
+        
+    }
+    
+    
 }

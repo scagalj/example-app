@@ -109,4 +109,6 @@ return [
     'FinalCleaning' => 'Final cleaning',
     'IncludedInPrice' => 'Included in price',
     'TouristTax' => 'Tourist tax',
+    'ShowMore' => 'Show more',
+    'ShowAll' => 'Show all',
 ];

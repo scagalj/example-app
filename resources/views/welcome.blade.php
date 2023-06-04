@@ -70,6 +70,13 @@
                     $('#checkOut').focus();
                 });
 
+                $("#showmore").on("click", function () {
+
+                    renderShowMoreApartmentsOverview();
+
+                });
+
+
             });
 
             function addDayToDate($date, $days) {
@@ -81,17 +88,17 @@
                 $newYear = $dateO.getFullYear();
 
 
-                if ($newDay < 10){
+                if ($newDay < 10) {
                     $newDay = "0" + $newDay.toString();
                 }
-                if ($newMonth < 10){
+                if ($newMonth < 10) {
                     $newMonth = "0" + $newMonth.toString();
                 }
                 return $newDay.toString() + "." + $newMonth.toString() + "." + $newYear.toString();
             }
-            
-            function cretaeDateFromString($dateAsString){
-                
+
+            function cretaeDateFromString($dateAsString) {
+
                 $values = $dateAsString.split('.');
                 $day = $values[0];
                 $month = $values[1];
@@ -100,7 +107,33 @@
                 $dateO = new Date($dateS);
                 return $dateO;
             }
-            
+
+            function renderShowMoreApartmentsOverview() {
+
+
+
+                $.ajax({
+                    url: '/apartment/overview',
+                    method: 'GET',
+                    data: {
+                        loaded: $('#loaded').val(),
+                        loadMore: $('#loadMore').val(),
+                    },
+                    success: function (response) {
+                        $("#apartments-overview").append(response.content);
+                        $('#loaded').val(response.loaded);
+                        $('#loadMore').val(response.loadMore);
+                        if (response.loadMore === 'false') {
+                           $("#showmore").hide(); 
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log('ERROR: ' + error + " status: " + status);
+                    }
+                });
+
+            }
+
         </script>
         <!---------------HEADER END--------------------->
 
@@ -171,12 +204,19 @@
                 <!--<div>-->
                 <!--<h2>Accommodation in Omiš</h2>-->
                 <!--</div>-->
-                <div class="row gx-5">
+                <div id="apartments-overview" class="row gx-5">
                     @include('/layouts/apartment-overview',['apartment' => $apartment2])
                     @include('/layouts/apartment-overview',['apartment' => $apartment1])
                     @include('/layouts/apartment-overview',['apartment' => $apartment3])
                     @include('/layouts/apartment-overview',['apartment' => $apartment4])
                 </div>
+
+
+                <div id="showmore" class="text-center uppercase">
+                    <span class="showMoreBtn">{{ __('messages.ShowAll')}}</span>
+                </div>
+                <input id="loadMore" type="hidden" name="loadMore" value="true" />
+                <input id="loaded" type="hidden" name="loaded" value="4" />
             </div>
 
         </div>

@@ -49,7 +49,7 @@ if ($price == 0) {
                 <div class="apartment-description">25m2 / 1-2 {{ __('messages.person') }}</div>
             </div>
             <span class="apartment-description-overview">
-<?php echo strip_tags($apartment->getdescriptionvalue($lang)); ?>
+                <?php echo strip_tags($apartment->getdescriptionvalue($lang)); ?>
             </span>
             <b><span class="description-show-more"><a href="{{ route('apartment', $apartment->id) }}"> {{ __('messages.showmore') }} </a></span></b>
             <!--<div class="apartment-name-more-details">Show more details</div>-->
@@ -61,7 +61,7 @@ if ($price == 0) {
                     <?php echo $priceAmount ?>
                 </div>
                 <div class="booknow uppercase" style="display: inline-block; float: right;">
-                    <a href="{{ route('apartment', $apartment->id) }}"><p> {{ __('messages.BookNow') }}</p></a>
+                    <a href="{{ route('apartment', $apartment->id) }}"><span class="booknowBtn"> {{ __('messages.BookNow') }}</span></a>
                 </div>
 
             </div>

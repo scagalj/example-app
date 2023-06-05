@@ -6,6 +6,18 @@
 <meta name="description" content="{{ __('messages.ApartmentsNatureDescription') }}">
 <title>{{ __('messages.ApartmentsNatureTitle') }}</title>
 
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3DE6ENVC2J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3DE6ENVC2J');
+</script>
+
+
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

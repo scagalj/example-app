@@ -26,8 +26,19 @@ class LangController extends Controller {
     }
 
     public static function updateLanguage($lang) {
+        
+        $locales = config('app.locales'); // Get the locales configuration array
+
+        
+        if (!in_array($lang, $locales)) {
+                error_log('NIJE U ARRAY');
+            $lang = 'en';
+        }
+        
         App::setLocale($lang);
         session()->put('locale', $lang);
+        
+        return $lang;
     }
 
     public static function getLanguage() {

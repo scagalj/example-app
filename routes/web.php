@@ -82,8 +82,7 @@ Route::group([], function () {
     })->name('welcome');
     
     Route::get('/{locale}', function ($locale) {
-        LangController::updateLanguage($locale); // Set the application locale based on the URL segment
-        $lang = $locale;
+        $lang = LangController::updateLanguage($locale); // Set the application locale based on the URL segment
         $apartment1 = ApartmentController::getById(1);
         $apartment2 = ApartmentController::getById(2);
         $apartment3 = ApartmentController::getById(3);
@@ -101,15 +100,13 @@ Route::group([], function () {
 
 //---CONTACT FORM---
     Route::get('/{locale}/contactus', function ($locale) {
-        LangController::updateLanguage($locale); // Set the application locale based on the URL segment
-        $lang = $locale;
+        $lang = LangController::updateLanguage($locale); // Set the application locale based on the URL segment
         return view('contactus', compact('lang'));
     })->name('contactus');
 
 
     Route::get('/{locale}/privacypolicy', function ($locale) {
-        LangController::updateLanguage($locale); // Set the application locale based on the URL segment
-        $lang = $locale;
+        $lang = LangController::updateLanguage($locale); // Set the application locale based on the URL segment
         return view('privacypolicy', compact('lang'));
     })->name('privacypolicy');
 
@@ -118,8 +115,7 @@ Route::group([], function () {
     })->name('selfcheckin');
 
     Route::get('/{locale}/selfcheckin', function ($locale) {
-        LangController::updateLanguage($locale); // Set the application locale based on the URL segment
-        $lang = $locale;
+        $lang = LangController::updateLanguage($locale); // Set the application locale based on the URL segment
         return view('selfcheckin', compact('lang'));
     })->name('selfcheckin.locale');
 });

@@ -28,7 +28,7 @@
                 <ul class="dropdown-menu changeLang">
                     <li class="nav-item flag-icon-style {{ $lang == 'en' || $lang == '' ? 'hide' : ''}}" value="en">
                         <i class="flag-icon flag-icon-gb"></i>
-                    </li>php artisan vendor:publish --provider="Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider"
+                    </li>
                     <li class="nav-item flag-icon-style {{ $lang == 'de' ? 'hide' : ''}}" value="de">
                         <i class="flag-icon flag-icon-de"></i>
                     </li>

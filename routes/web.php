@@ -11,6 +11,7 @@ use App\Http\Controllers\BathroomController;
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\BookingRequestController;
 use App\Http\Controllers\LangController;
+use App\Http\Controllers\SitemapController;
 
 /*
   |--------------------------------------------------------------------------
@@ -23,6 +24,9 @@ use App\Http\Controllers\LangController;
   |
  */
 
+
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 
 //--UPDATE SEARCH CRITERIAS
 Route::post('/', [ApartmentController::class, 'updateSearchCriteria'])->name('apartment.searchCriteria.update');

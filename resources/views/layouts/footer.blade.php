@@ -6,7 +6,7 @@
                 <ul class="navbar-nav mr-auto">
                     @include('/layouts/navbar-items')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('privacypolicy')}}">{{ __('messages.PrivacyPolicy') }}</a>
+                        <a class="nav-link" href="{{route('privacypolicy', ['locale' => $lang])}}">{{ __('messages.PrivacyPolicy') }}</a>
                     </li>
                 </ul>
             </div>

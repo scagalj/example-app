@@ -240,7 +240,7 @@
                 <div id="text_block-218-12" class="ct-text-block atomic-subheading">
                     {{ __('messages.ScheduleOnTimeDescription') }}
                 </div>
-                <a id="link_text-219-12" class="ct-link-text atomic-primary-button uppercase" href="{{route('contactus')}}">{{ __('messages.ContactUs')}}</a>
+                <a id="link_text-219-12" class="ct-link-text atomic-primary-button uppercase" href="{{route('contactus', ['locale' => $lang])}}">{{ __('messages.ContactUs')}}</a>
             </div>
         </section>
 

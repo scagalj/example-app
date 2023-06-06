@@ -10,7 +10,7 @@ use App\Http\Controllers\BedController;
 use App\Http\Controllers\BathroomController;
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\BookingRequestController;
- use App\Http\Controllers\LangController;
+use App\Http\Controllers\LangController;
 
 /*
   |--------------------------------------------------------------------------
@@ -24,16 +24,7 @@ use App\Http\Controllers\BookingRequestController;
  */
 
 
-Route::get('/', function () {
-    $lang = LangController::getLanguage();
-    $apartment1 = ApartmentController::getById(1);
-    $apartment2 = ApartmentController::getById(2);
-    $apartment3 = ApartmentController::getById(3);
-    $apartment4 = ApartmentController::getById(4);
-    return view('welcome', compact('lang', 'apartment1','apartment2','apartment3','apartment4'));
-})->name('welcome');
-
-
+//--UPDATE SEARCH CRITERIAS
 Route::post('/', [ApartmentController::class, 'updateSearchCriteria'])->name('apartment.searchCriteria.update');
 
 //----AJAX REQUEST-----------
@@ -41,7 +32,6 @@ Route::get('/apartment/price', [ApartmentController::class, 'calculatePriceAjax'
 Route::get('/apartment/overview', [ApartmentController::class, 'renderApartmentOverviewAjax'])->name('apartment.overview');
 
 
-Route::get('/apartment/{apartment}', [ApartmentController::class, 'show'])->name('apartment');
 
 //------IMAGE ROUTES------------
 
@@ -53,8 +43,8 @@ Route::controller(ImageController::class)->group(function() {
 //------END IMAGE ROUTES------------
 //------LANG ROUTES-------------
 
-Route::get('lang/home', [LangController::class, 'index']);
-Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
+//Route::get('lang/home', [LangController::class, 'index']);
+//Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 
 //------END LANG ROUTES-------------
 
@@ -67,33 +57,75 @@ Route::get('apnatureadmin/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//--APPLICATION PORTAL
+
+Route::group([], function () {
+
+    Route::get('/', function () {
+        $lang = LangController::getLanguage();
+        if($lang != 'en'){
+            return redirect()->route('welcome.locale', ['locale' => $lang]);
+        }
+        $apartment1 = ApartmentController::getById(1);
+        $apartment2 = ApartmentController::getById(2);
+        $apartment3 = ApartmentController::getById(3);
+        $apartment4 = ApartmentController::getById(4);
+        return view('welcome', compact('lang', 'apartment1', 'apartment2', 'apartment3', 'apartment4'));
+    })->name('welcome');
+    
+    Route::get('/{locale}', function ($locale) {
+        LangController::updateLanguage($locale); // Set the application locale based on the URL segment
+        $lang = $locale;
+        $apartment1 = ApartmentController::getById(1);
+        $apartment2 = ApartmentController::getById(2);
+        $apartment3 = ApartmentController::getById(3);
+        $apartment4 = ApartmentController::getById(4);
+        return view('welcome', compact('lang', 'apartment1', 'apartment2', 'apartment3', 'apartment4'));
+    })->name('welcome.locale');
+    
+    
+//    Route::get('/apartment/{apartment}', [ApartmentController::class, 'show'])->name('apartment');
+    Route::get('/apartment/{apartment}', function ($apartment) {
+        return redirect()->route('apartment.locale', ['locale' => LangController::getLanguage(), 'apartment' => $apartment]);
+    })->name('apartment');
+    
+    Route::get('{locale}/apartment/{apartment}', [ApartmentController::class, 'show'])->name('apartment.locale');
 
 //---CONTACT FORM---
+    Route::get('/{locale}/contactus', function ($locale) {
+        LangController::updateLanguage($locale); // Set the application locale based on the URL segment
+        $lang = $locale;
+        return view('contactus', compact('lang'));
+    })->name('contactus');
 
-Route::get('/contactus', function () {
-    $lang = LangController::getLanguage();
-    return view('contactus', compact('lang'));
-})->name('contactus');
 
-Route::get('/privacypolicy', function () {
-    $lang = LangController::getLanguage();
-    return view('privacypolicy', compact('lang'));
-})->name('privacypolicy');
+    Route::get('/{locale}/privacypolicy', function ($locale) {
+        LangController::updateLanguage($locale); // Set the application locale based on the URL segment
+        $lang = $locale;
+        return view('privacypolicy', compact('lang'));
+    })->name('privacypolicy');
 
-Route::get('/selfcheckin', function () {
-    $lang = LangController::getLanguage();
-    return view('selfcheckin', compact('lang'));
-})->name('selfcheckin');
+    Route::get('/selfcheckin', function () {
+        return redirect()->route('selfcheckin.locale', ['locale' => LangController::getLanguage()]);
+    })->name('selfcheckin');
 
+    Route::get('/{locale}/selfcheckin', function ($locale) {
+        LangController::updateLanguage($locale); // Set the application locale based on the URL segment
+        $lang = $locale;
+        return view('selfcheckin', compact('lang'));
+    })->name('selfcheckin.locale');
+});
+
+
+//---MAIL CONTACT----
 Route::post('/contactus', [BookingRequestController::class, 'sendInformationRequest'])->name('contact.information.request');
 Route::post('/apartment/{apartment_id}', [BookingRequestController::class, 'sendBookingRequest'])->name('contact.booking.request');
 
-//ADMIN CONSOLE
+//---ADMIN PORTAL--
 
 Route::middleware('auth')->group(function () {
 
@@ -102,7 +134,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/apnatureadmin/newhouse/{id}', [HouseController::class, 'edit'])->name('admin.houses.edit');
     Route::patch('/apnatureadmin/newhouse/{id}', [HouseController::class, 'update'])->name('admin.houses.update');
     Route::post('/apnatureadmin/newhouse', [HouseController::class, 'store'])->name('admin.houses.store');
-    
+
     Route::get('/apnatureadmin/apartments', [ApartmentController::class, 'index'])->name('admin.apartments.index');
     Route::get('/apnatureadmin/newapartment/{house_id}', [ApartmentController::class, 'new'])->name('admin.apartments.new');
     Route::get('/apnatureadmin/newapartment/{house_id}/{id}', [ApartmentController::class, 'edit'])->name('admin.apartments.edit');
@@ -112,40 +144,38 @@ Route::middleware('auth')->group(function () {
     Route::post('/apnatureadmin/newapartment/{house_id}/{id}', [ApartmentController::class, 'addPrice'])->name('admin.apartments.addprice');
     Route::post('/apnatureadmin/apartment/price/delete/{apartment_id}/{id}', [ApartmentController::class, 'deletePrice'])->name('admin.apartments.deleteprice');
     Route::post('/apnatureadmin/apartment/price/update/{apartment_id}/{id}', [ApartmentController::class, 'updatePrice'])->name('admin.apartments.updateprice');
-    
+
     Route::get('/apnatureadmin/newroom/{apartment_id}', [RoomController::class, 'new'])->name('admin.rooms.new');
     Route::get('/apnatureadmin/newroom/{apartment_id}/{id}', [RoomController::class, 'edit'])->name('admin.rooms.edit');
     Route::post('/apnatureadmin/newroom/{apartment_id}', [RoomController::class, 'store'])->name('admin.rooms.store');
     Route::patch('/apnatureadmin/newroom/{apartment_id}/{id}', [RoomController::class, 'update'])->name('admin.rooms.update');
     Route::get('/apnatureadmin/apartment/back/{apartment_id}', [RoomController::class, 'back'])->name('admin.rooms.back');
     Route::post('/apnatureadmin/apartment/rooms/delete/{apartment_id}/{id}', [RoomController::class, 'delete'])->name('admin.rooms.delete');
-    
+
     Route::get('/apnatureadmin/newbed/{apartment_id}/{room_id}', [BedController::class, 'new'])->name('admin.beds.new');
     Route::get('/apnatureadmin/newbed/{apartment_id}/{room_id}/{id}', [BedController::class, 'edit'])->name('admin.beds.edit');
     Route::post('/apnatureadmin/newbed/{apartment_id}/{room_id}', [BedController::class, 'store'])->name('admin.beds.store');
     Route::patch('/apnatureadmin/newbed/{apartment_id}/{room_id}/{id}', [BedController::class, 'update'])->name('admin.beds.update');
     Route::post('/apnatureadmin/room/bed/delete/{room_id}/{id}', [BedController::class, 'delete'])->name('admin.beds.delete');
-    
+
     Route::get('/apnatureadmin/newroomaccessories/{room_id}', [RoomAccessoriesController::class, 'new'])->name('admin.roomaccessories.new');
     Route::get('/apnatureadmin/newroomaccessories/{room_id}/{id}', [RoomAccessoriesController::class, 'edit'])->name('admin.roomaccessories.edit');
     Route::post('/apnatureadmin/newroomaccessories/{room_id}', [RoomAccessoriesController::class, 'store'])->name('admin.roomaccessories.store');
     Route::patch('/apnatureadmin/newroomaccessories/{room_id}/{id}', [RoomAccessoriesController::class, 'update'])->name('admin.roomaccessories.update');
     Route::post('/apnatureadmin/room/delete/{room_id}/{id}', [RoomAccessoriesController::class, 'delete'])->name('admin.roomaccessories.delete');
-    
+
     Route::get('/apnatureadmin/newamenities/{house_id}', [AmenitiesController::class, 'new'])->name('admin.amenities.new');
     Route::get('/apnatureadmin/newamenities/{house_id}/{id}', [AmenitiesController::class, 'edit'])->name('admin.amenities.edit');
     Route::post('/apnatureadmin/newamenities/{house_id}', [AmenitiesController::class, 'store'])->name('admin.amenities.store');
     Route::patch('/apnatureadmin/newamenities/{house_id}/{id}', [AmenitiesController::class, 'update'])->name('admin.amenities.update');
-    
+
     Route::get('/apnatureadmin/newbathroom/{room_id}', [BathroomController::class, 'new'])->name('admin.bathrooms.new');
     Route::get('/apnatureadmin/newbathroom/{room_id}/{id}', [BathroomController::class, 'edit'])->name('admin.bathrooms.edit');
     Route::post('/apnatureadmin/newbathroom/{room_id}', [BathroomController::class, 'store'])->name('admin.bathrooms.store');
     Route::patch('/apnatureadmin/newbathroom/{room_id}/{id}', [BathroomController::class, 'update'])->name('admin.bathrooms.update');
     Route::post('/apnatureadmin/room/bathroom/delete/{room_id}/{id}', [BathroomController::class, 'delete'])->name('admin.bathrooms.delete');
-    
+
     Route::post('/apnatureadmin/newapartment/{house_id}/{apartment_id}', [ImageController::class, 'storeImageToApartment'])->name('admin.apartments.uploadimage');
     Route::post('/apnatureadmin/apartment/delete/{apartment_id}/{image_id}', [ImageController::class, 'deleteImageFromApartment'])->name('admin.apartments.deleteimage');
-    
-    
 });
 

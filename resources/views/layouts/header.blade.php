@@ -10,11 +10,13 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3DE6ENVC2J"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
 
-  gtag('config', 'G-3DE6ENVC2J');
+gtag('config', 'G-3DE6ENVC2J');
 </script>
 
 
@@ -25,6 +27,12 @@
 <!--<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">-->
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+@foreach(config('app.locales') as $locale)
+    @if($locale !== app()->getLocale())
+        <link rel="alternate" hreflang="{{ $locale }}" href="{{ LaravelLocalization::getLocalizedURL($locale, null, [], true) }}">
+    @endif
+@endforeach
 
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}" defer></script>

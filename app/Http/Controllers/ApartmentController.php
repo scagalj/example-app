@@ -199,13 +199,11 @@ class ApartmentController extends BaseController {
     }
 
     public function index() {
-//        $allApartments = Apartment::all();
-//        Log::info($allApartments);
-
         return view('admin/apartments', ['apartments' => Apartment::all()]);
     }
 
-    public function show(Apartment $apartment) {
+    public function show($locale, Apartment $apartment) {
+        LangController::updateLanguage($locale);
         return view('apartment', ['apartment' => $apartment]);
     }
 

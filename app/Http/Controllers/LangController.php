@@ -1,74 +1,68 @@
 <?php
-  
+
 namespace App\Http\Controllers;
-  
+
 use Illuminate\Http\Request;
 use App\Commons\TranslatableField;
 use App;
-  
-class LangController extends Controller
-{
-    
+
+class LangController extends Controller {
+
     protected static $defaultLanguage = 'en';
     protected static $languages = ['en', 'fr', 'sp', 'de', 'it', 'pl', 'cz'];
-    
+
     function __construct() {
+        
     }
-    
-    public function index()
-    {
+
+    public function index() {
         return view('lang');
     }
-  
-    public function change(Request $request){
+
+    public function change(Request $request) {
         self::updateLanguage($request->lang);
-  
+
         return redirect()->back();
     }
-    
-    public static function updateLanguage($lang){
+
+    public static function updateLanguage($lang) {
         App::setLocale($lang);
         session()->put('locale', $lang);
     }
-    
+
     public static function getLanguage() {
-        $lang = session()->get('locale');
-        if (is_null($lang)) {
-            self::updateLanguage(self::getDefaultLanguage());
-            $lang = self::getDefaultLanguage();
-        }
-        return $lang;
+        return session()->get('locale', self::getDefaultLanguage());
     }
-    
-    public static function getDefaultLanguage(){
+
+    public static function getDefaultLanguage() {
         return self::$defaultLanguage;
     }
-    
-    public static function getAllLanguages(){
+
+    public static function getAllLanguages() {
         return self::$languages;
     }
 
-    public static function getLanguageField($request, $fieldName){
+    public static function getLanguageField($request, $fieldName) {
         $translatableField = new TranslatableField();
-        
+
         $languages = LangController::getAllLanguages();
-        
+
         foreach ($languages as $language) {
             $inputName = $fieldName . $language;
-            if($request->filled($inputName)){
+            if ($request->filled($inputName)) {
                 $inputValue = $request->input($inputName);
                 $translatableField->setValue($language, $inputValue);
             }
         }
         return $translatableField;
     }
-    
-    public static function convertLanguageFieldToJson($languageField){
+
+    public static function convertLanguageFieldToJson($languageField) {
         $result = json_encode($languageField->getValues());
         return $result;
     }
-    
-    public static function convertJsonToLanguageField($jsonField){
+
+    public static function convertJsonToLanguageField($jsonField) {
         $languageField = new TranslatableField();
         if (is_null($jsonField)) {
             return $languageField;
@@ -81,11 +75,11 @@ class LangController extends Controller
         }
         return $languageField;
     }
-    
-    public static function getLanguageFieldAsJson($request, $fieldName){
+
+    public static function getLanguageFieldAsJson($request, $fieldName) {
         $languageField = LangController::getLanguageField($request, $fieldName);
         $languageFieldAsJson = LangController::convertLanguageFieldToJson($languageField);
         return $languageFieldAsJson;
     }
-    
+
 }

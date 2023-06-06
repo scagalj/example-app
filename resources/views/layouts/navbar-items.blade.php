@@ -23,5 +23,5 @@
     <a class="nav-link" href="<?php echo $welcomeExploreUrl ?>">{{ __('messages.ExploreLikeALocal') }}</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="{{route('contactus')}}">{{ __('messages.Contact') }}</a>
+    <a class="nav-link" href="{{route('contactus', ['locale' => $lang])}}">{{ __('messages.Contact') }}</a>
 </li>

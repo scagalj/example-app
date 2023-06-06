@@ -23,7 +23,7 @@
 
             <div class="dropdown">
                 <li class=" nav-item flag-icon-style dropdown-toggle" data-toggle="dropdown" aria-expanded="false" value="en" style="list-style-type: none;">
-                    <i class="flag-icon flag-icon-{{ $lang == 'en' || $lang == '' ? 'gb' : ($lang == 'sp' ? 'es' : $lang) }}"></i>
+                    <i class="flag-icon flag-icon-{{ $lang == 'en' || $lang == '' ? 'gb' : ($lang == 'cs' ? 'cz' : $lang) }}"></i>
                 </li>
                 <ul class="dropdown-menu changeLang">
                     <li class="nav-item flag-icon-style {{ $lang == 'en' || $lang == '' ? 'hide' : ''}}" value="en">
@@ -32,7 +32,7 @@
                     <li class="nav-item flag-icon-style {{ $lang == 'de' ? 'hide' : ''}}" value="de">
                         <i class="flag-icon flag-icon-de"></i>
                     </li>
-                    <li class="nav-item flag-icon-style {{ $lang == 'sp' ? 'hide' : ''}}" value="sp">
+                    <li class="nav-item flag-icon-style {{ $lang == 'es' ? 'hide' : ''}}" value="es">
                         <i class="flag-icon flag-icon-es "></i>
                     </li>
                     <li class="nav-item flag-icon-style {{ $lang == 'fr' ? 'hide' : ''}}" value="fr">
@@ -44,7 +44,7 @@
                     <li class="nav-item flag-icon-style {{ $lang == 'pl' ? 'hide' : ''}}" value="pl">
                         <i class="flag-icon flag-icon-pl"></i>
                     </li>
-                    <li class="nav-item flag-icon-style {{ $lang == 'cz' ? 'hide' : ''}}" value="cz">
+                    <li class="nav-item flag-icon-style {{ $lang == 'cs' ? 'hide' : ''}}" value="cs">
                         <i class="flag-icon flag-icon-cz"></i>
                     </li>
                 </ul>
@@ -56,10 +56,17 @@
 
 <script type="text/javascript">
 
-    var url = "{{ route('changeLang') }}";
+    var curLang = "{{ $lang }}";
     $(".changeLang li").click(function () {
         var lang = $(this).attr('value');
-        window.location.href = url + "?lang=" + lang;
+        
+    var currentUrl = window.location.href;
+    if(currentUrl.includes('/'+curLang)){
+        var newurl = currentUrl.replace('/'+curLang, '/'+lang);
+    }else{
+        var newurl = currentUrl + lang;
+    }
+        window.location.href = newurl;
     });
 
 </script>

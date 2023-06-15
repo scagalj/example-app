@@ -40,7 +40,7 @@ if ($price == 0) {
                 if (isset($mainImage)) {
                     echo $apartment->getImagesPath() . $mainImage->filename;
                 }
-                ?>" class="apartment-image-dispay"  />
+                ?>" class="apartment-image-dispay" alt="{{  __('messages.' . $apartment->name) }} at Nature apartment in Omiš"  />
             </div>
         </a>
         <div class="apartment-name-wrapper">

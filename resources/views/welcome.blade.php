@@ -131,37 +131,6 @@
 
         <!--------------APARTMENTS ICONS------------------>
 
-        <!--        <div class="container-sm">
-                    <div class="row apartments-icons">
-                        <div class="col-lg-2 col-sm-6 col-6 ">
-                            <img src="images/icons/rental.png"  width="48" height="48"/>
-                            <p>RENT DIRECT FROM OWNER</p>
-                        </div>
-                        <div class="col-lg-2 col-sm-6 col-6 ">
-                            <img src="images/icons/parking-sign.png"  width="48" height="48"/>
-                            <p>FREE PARKING</p>
-                        </div>
-                        <div class="col-lg-2 col-sm-6 col-6 ">
-                            <img src="images/icons/mountain.png"  width="48" height="48"/>
-                            <p>MOUNTAIN VIEW</p>
-                        </div>
-                        <div class="col-lg-2 col-sm-6 col-6 ">
-                            <img src="images/icons/balcony.png"  width="48" height="48"/>
-                            <p>ROOMS WITH BALCONY</p>
-                        </div>
-                        <div class="col-lg-2 col-sm-6 col-6 ">
-                            <img src="images/icons/planet-earth.png"  width="48" height="48"/>
-                            <p>ENVIRONMENTALLY CONSCIOUS</p>
-                        </div>
-                        <div class="col-lg-2 col-sm-6 col-6 ">
-                            <img src="images/icons/wifi.png"  width="48" height="48"/>
-                            <p>FREE WIFI</p>
-                        </div>
-        
-                    </div>
-                </div>-->
-
-
 
         <!--------------APARTMENTS ICONS END-------------->
 
@@ -249,25 +218,6 @@
         <!--------------EXPLORE LIKE A LOCAL-------------->
 
         <div id="explore" class="container-fluid header-conainer mt-5 pt-5 mb-5 pb-5">
-
-            <!--<div id="fullPageHeader" class="fullPageHeaderMain" style="background: url(/images/explorelikelocal/activities-header.jpg); background-position: center; background-repeat: no-repeat; background-size: cover" >-->
-            <!--                <div id="headerContent" class="headerImageContent">
-                                <div class="container-fluid">
-                                    <div class="headerName">
-                                        <h1 class="whiteColor">{{ __('messages.ApartmentsNature') }}</h1>
-                                    </div>
-                                </div>
-                            </div>-->
-
-            <!--</div>-->
-            <!--            <div class="container explore-like-a-local-wrapper">
-                            <div class="row justify-content-between">
-                                <div class="col-4 explore-like-alocal-title">
-                                    <h4 class="text-uppercase pb-2">Explore like a local</h4>
-                                    <span class="">Little friendly town that offers you enormous numbers of activities</span>
-                                </div>
-                            </div>
-                        </div>-->
             <div class="guestHeader">
                 <h3 class="mb-3 f-w-4">{{ __('messages.ExploreLikeALocal') }}</h3>
                 <p>{{ __('messages.ExploreLikeALocalDescription') }}</p>
@@ -276,7 +226,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-sm-6 rowColImage">
                         <div>
-                            <img src="images/explorelikelocal/rafting.jpg" class="explore-like-a-local-images-gallery-image" />
+                            <img src="images/explorelikelocal/rafting.jpg" class="explore-like-a-local-images-gallery-image" alt="{{ __('messages.RaftingOnCetina') }}" />
                         </div>
                         <div class="explore-like-a-local-image-content">
                             <h5 class="uppercase">{{ __('messages.RaftingOnCetina') }}</h5>
@@ -286,7 +236,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 rowColImage">
                         <div>
-                            <img src="images/explorelikelocal/pirate-battle.jpg" class="explore-like-a-local-images-gallery-image" />
+                            <img src="images/explorelikelocal/pirate-battle.jpg" class="explore-like-a-local-images-gallery-image" alt="{{ __('messages.PirateBattle') }}" />
                         </div>
                         <div class="explore-like-a-local-image-content">
                             <h5 class="uppercase">{{ __('messages.PirateBattle') }}</h5>
@@ -295,7 +245,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 rowColImage">
                         <div>
-                            <img src="images/explorelikelocal/rock-climbing.jpg" class="explore-like-a-local-images-gallery-image" />
+                            <img src="images/explorelikelocal/rock-climbing.jpg" class="explore-like-a-local-images-gallery-image" alt="{ __('messages.RockClimbing') }}" />
                         </div>
                         <div class="explore-like-a-local-image-content">
                             <h5 class="uppercase">{{ __('messages.RockClimbing') }}</h5>
@@ -304,7 +254,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 rowColImage">
                         <div>
-                            <img src="images/explorelikelocal/traditional-dishes.jpg" class="explore-like-a-local-images-gallery-image" />
+                            <img src="images/explorelikelocal/traditional-dishes.jpg" class="explore-like-a-local-images-gallery-image" alt="{{ __('messages.TraditionalDishes') }}" />
                         </div>
                         <div class="explore-like-a-local-image-content">
                             <h5 class="uppercase">{{ __('messages.TraditionalDishes') }}</h5>
@@ -315,7 +265,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-sm-6 rowColImage">
                         <div>
-                            <img src="images/explorelikelocal/mountain-bike.jpg" class="explore-like-a-local-images-gallery-image" />
+                            <img src="images/explorelikelocal/mountain-bike.jpg" class="explore-like-a-local-images-gallery-image" alt="{{ __('messages.MountainBike') }}" />
                         </div>
                         <div class="explore-like-a-local-image-content">
                             <h5 class="uppercase">{{ __('messages.MountainBike') }}</h5>
@@ -324,7 +274,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 rowColImage">
                         <div>
-                            <img src="images/explorelikelocal/ferrata-omis.jpg" class="explore-like-a-local-images-gallery-image" />
+                            <img src="images/explorelikelocal/ferrata-omis.jpg" class="explore-like-a-local-images-gallery-image" alt="{{ __('messages.FerataOmis') }}" />
                         </div>
                         <div class="explore-like-a-local-image-content">
                             <h5 class="uppercase">{{ __('messages.FerataOmis') }}</h5>
@@ -333,7 +283,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 rowColImage">
                         <div>
-                            <img src="images/explorelikelocal/zipline.jpg" class="explore-like-a-local-images-gallery-image" />
+                            <img src="images/explorelikelocal/zipline.jpg" class="explore-like-a-local-images-gallery-image" alt="{{ __('messages.ZipLine') }}" />
                         </div>
                         <div class="explore-like-a-local-image-content">
                             <h5 class="uppercase">{{ __('messages.ZipLine') }}</h5>
@@ -342,7 +292,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 rowColImage">
                         <div>
-                            <img src="images/explorelikelocal/fortress-fortica.jpg" class="explore-like-a-local-images-gallery-image" />
+                            <img src="images/explorelikelocal/fortress-fortica.jpg" class="explore-like-a-local-images-gallery-image" alt="{{ __('messages.FortressFortica') }}" />
                         </div>
                         <div class="explore-like-a-local-image-content">
                             <h5 class="uppercase">{{ __('messages.FortressFortica') }}</h5>

@@ -5,7 +5,7 @@
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="{{route('welcome')}}">
                 <div class="headerLogo">
-                    <img class="logoImage" src="/images/logoname2.png" alt=""/>
+                    <img class="logoImage" src="/images/logoname2.png" alt="Apartment Nature Omiš"/>
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

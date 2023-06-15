@@ -236,7 +236,7 @@
 
         <section id="section-216-12" class="ct-section">
             <div class="ct-section-inner-wrap">
-                <h2 id="headline-217-12" class="ct-headline atomic-secondary-heading uppercase">{{ __('messages.ScheduleOnTime') }}</h2>
+                <h3 id="headline-217-12" class="ct-headline atomic-secondary-heading uppercase">{{ __('messages.ScheduleOnTime') }}</h3>
                 <div id="text_block-218-12" class="ct-text-block atomic-subheading">
                     {{ __('messages.ScheduleOnTimeDescription') }}
                 </div>

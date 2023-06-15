@@ -11,15 +11,6 @@
         <div class="container-fluid header-conainer">
 
             <div id="fullPageHeader" class="fullPageHeaderMain" style="background: url(/images/headers/main-header.jpg); background-position: center; background-repeat: no-repeat; background-size: cover" >
-                <!--                <div id="headerContent" class="headerImageContent">
-                                    <div class="container-fluid">
-                                        <div class="headerName">
-                                            <h1 class="whiteColor">{{ __('messages.ApartmentsNature') }}</h1>
-                                            <h2 style="display:none;" class="whiteColor">{{ __('messages.ApartmentsNatureTitle') }}</h2>
-                                        </div>
-                                    </div>
-                                </div>-->
-
             </div>
             <div class="container-sm welcomeTitle">
                 <form action="{{ route('apartment.searchCriteria.update') }}" method="post" enctype="multipart/form-data">
@@ -177,6 +168,7 @@
         <!--DESCRIPTION-->
         <div class="container apartmentDescription">
             <h1 class="apartmentNameWelcome">{{ __('messages.ApartmentsNature') }}</h1>
+            <h2 style="display:none;" class="whiteColor">{{ __('messages.ApartmentsNatureTitle') }}</h2>
             <p class="">
                 {{ __('messages.welcomeMessage1') }}
             </p>

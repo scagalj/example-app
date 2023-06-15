@@ -105,4 +105,10 @@ return [
     'TotalPrice' => 'Total price',
     'Total' => 'Total',
     'Night' => 'Night',
+    'AddNote' => 'Přidat poznámku',
+    'FinalCleaning' => 'Závěrečný úklid',
+    'IncludedInPrice' => 'Zahrnuto v ceně',
+    'TouristTax' => 'Turistická taxa',
+    'ShowMore' => 'Zobrazit více',
+    'ShowAll' => 'Zobrazit vše',
 ];

@@ -34,6 +34,11 @@ gtag('config', 'G-3DE6ENVC2J');
     @endif
 @endforeach
 
+@php
+    $currentUrl = Illuminate\Support\Facades\Request::url();
+@endphp
+<link rel="canonical" href="{{ $currentUrl }}">
+
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}" defer></script>
 <script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>

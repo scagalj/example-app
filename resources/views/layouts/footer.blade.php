@@ -11,7 +11,7 @@
                 </ul>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-7" style="margin: auto; text-align: center;">
-                <img src="/images/stay_safe.png" class="" style="width: 100%; padding: 4vw; width: 65%;"/>
+                <img src="/images/stay_safe.png" class="" style="width: 100%; padding: 4vw; width: 65%;" alt="Stay safe in Croatia and Safe travel to Omiš" />
             </div>
             <div class="col-sm-12 col-md-4 col-lg-3 pt-5 footerContactUs">
                 <h5 class="uppercase">{{ __('messages.ContactUs') }}:</h5>

@@ -8,7 +8,7 @@ return [
     'Contact' => 'Contact',
     'ApartmentsNature' => 'Apartments Nature',
     'ApartmentsNatureTitle' => 'Apartments Nature | Omiš',
-    'ApartmentsNatureDescription' => 'Find your apartment for rent in Omis near city center, sea, and beautiful nature. Perfect for friends, couples, and families for short or long-term stays.',
+    'ApartmentsNatureDescription' => 'Find your apartment for rent in Omiš near city center, sea, and beautiful nature. Perfect for friends, couples, and families for short or long-term stays.',
     'Guests' => 'Guests',
     'Bedrooms' => 'Bedrooms',
     'Beds' => 'Beds',

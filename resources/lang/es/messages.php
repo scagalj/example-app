@@ -104,4 +104,10 @@ return [
     'TotalPrice' => 'Total price',
     'Total' => 'Total',
     'Night' => 'Night',
+    'AddNote' => 'Añadir nota',
+    'FinalCleaning' => 'Limpieza final',
+    'IncludedInPrice' => 'Incluido en el precio',
+    'TouristTax' => 'Impuesto turístico',
+    'ShowMore' => 'Mostrar más',
+    'ShowAll' => 'Mostrar todo',
 ];

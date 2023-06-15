@@ -15,6 +15,7 @@
                                     <div class="container-fluid">
                                         <div class="headerName">
                                             <h1 class="whiteColor">{{ __('messages.ApartmentsNature') }}</h1>
+                                            <h2 style="display:none;" class="whiteColor">{{ __('messages.ApartmentsNatureTitle') }}</h2>
                                         </div>
                                     </div>
                                 </div>-->

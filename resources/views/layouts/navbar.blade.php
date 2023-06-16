@@ -29,6 +29,9 @@
                     <li class="nav-item flag-icon-style {{ $lang == 'en' || $lang == '' ? 'hide' : ''}}" value="en">
                         <i class="flag-icon flag-icon-gb"></i>
                     </li>
+                    <li class="nav-item flag-icon-style {{ $lang == 'hr' ? 'hide' : ''}}" value="hr">
+                        <i class="flag-icon flag-icon-hr"></i>
+                    </li>
                     <li class="nav-item flag-icon-style {{ $lang == 'de' ? 'hide' : ''}}" value="de">
                         <i class="flag-icon flag-icon-de"></i>
                     </li>

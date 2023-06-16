@@ -82,7 +82,7 @@ return [
 
     'locale' => 'en',
     
-    'locales' => ['en', 'fr', 'es', 'de', 'it', 'pl', 'cs'],
+    'locales' => ['en', 'fr', 'es', 'de', 'it', 'pl', 'cs', 'hr'],
 
 
     /*

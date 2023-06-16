@@ -29,9 +29,7 @@ gtag('config', 'G-3DE6ENVC2J');
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
 @foreach(config('app.locales') as $locale)
-    @if($locale !== app()->getLocale())
         <link rel="alternate" hreflang="{{ $locale }}" href="{{ LaravelLocalization::getLocalizedURL($locale, null, [], true) }}">
-    @endif
 @endforeach
 
 @php

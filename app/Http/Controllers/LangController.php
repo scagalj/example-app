@@ -9,7 +9,7 @@ use App;
 class LangController extends Controller {
 
     protected static $defaultLanguage = 'en';
-    protected static $languages = ['en', 'fr', 'sp', 'de', 'it', 'pl', 'cz'];
+    protected static $languages = ['en', 'fr', 'sp', 'de', 'it', 'pl', 'cz', 'hr'];
 
     function __construct() {
         

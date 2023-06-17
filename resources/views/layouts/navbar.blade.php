@@ -3,9 +3,11 @@
 
 
         <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="{{route('welcome')}}">
+            <a class="navbar-brand" href="{{route('welcome')}}" style="padding-top: 0px; margin-top: 0px;">
                 <div class="headerLogo">
-                    <img class="logoImage" src="/images/logoname2.png" alt="Apartment Nature Omiš"/>
+                    <div class="logoNameFont" style="display: block;font-size: 19pt;">{{ __('messages.ApartmentsNature')}}</div>
+                    <span class="uppercase headerLogoPlaceName" >Omiš</span>
+                                              <!--<img class="logoImage" src="/images/logoname2.png" alt="Apartment Nature Omiš"/>-->
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,13 +64,13 @@
     var curLang = "{{ $lang }}";
     $(".changeLang li").click(function () {
         var lang = $(this).attr('value');
-        
-    var currentUrl = window.location.href;
-    if(currentUrl.includes('/'+curLang)){
-        var newurl = currentUrl.replace('/'+curLang, '/'+lang);
-    }else{
-        var newurl = currentUrl + lang;
-    }
+
+        var currentUrl = window.location.href;
+        if (currentUrl.includes('/' + curLang)) {
+            var newurl = currentUrl.replace('/' + curLang, '/' + lang);
+        } else {
+            var newurl = currentUrl + lang;
+        }
         window.location.href = newurl;
     });
 

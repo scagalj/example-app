@@ -136,7 +136,7 @@
 
         <!--DESCRIPTION-->
         <div class="container apartmentDescription">
-            <h1 class="apartmentNameWelcome">{{ __('messages.ApartmentsNature') }}</h1>
+            <h1 class="apartmentNameWelcome logoNameFont">{{ __('messages.ApartmentsNature') }}</h1>
             <h2 style="display:none;" class="whiteColor">{{ __('messages.ApartmentsNatureTitle') }}</h2>
             <p class="">
                 {{ __('messages.welcomeMessage1') }}

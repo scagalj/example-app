@@ -250,6 +250,8 @@ body{
     z-index: 90;
     display: block;
     background-color: #ffffff;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .headerLogo{
@@ -260,6 +262,11 @@ body{
     margin-right: 30px;
 
 }
+.headerLogoName{
+    display: block;
+    font-size: 19pt;
+}
+
 
 .headerLogoPlaceName{
     display: block;
@@ -288,7 +295,19 @@ body{
 
 @media only screen and (max-width: 430px) {
     .headerLogo{
-        width: 130px;
+        width: 160px;
+        margin-right: 0px;
+    }
+    .headerLogoName{
+        font-size: 14pt;
+    }
+
+    .headerLogoPlaceName {
+        top: 25px;
+        font-size: 9pt;
+    }
+
+    .navbar-brand{
         margin-right: 0px;
     }
     .priceAmount {
@@ -444,13 +463,6 @@ body{
 }
 .headerItems{
     font-size: 15px;
-}
-
-.header-navigation{
-    /*margin: 20px 30px 20px 20px;*/
-    /*color: white;*/
-    /*float: right;*/
-    /*font-size: 20pt;*/
 }
 
 .imageDisplay{
@@ -718,6 +730,11 @@ body{
 
     .footer-wrapper{
         text-align: center;
+    }
+    
+    .header-navigation{
+        padding-left: 5%;
+        padding-right: 5%;
     }
 }
 

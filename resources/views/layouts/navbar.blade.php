@@ -1,11 +1,8 @@
 <div class="container-fluid header-navigation">
-    <div class="container">
-
-
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="{{route('welcome')}}" style="padding-top: 0px; margin-top: 0px;">
                 <div class="headerLogo">
-                    <div class="logoNameFont" style="display: block;font-size: 19pt;">{{ __('messages.ApartmentsNature')}}</div>
+                    <div class="logoNameFont headerLogoName">{{ __('messages.ApartmentsNature')}}</div>
                     <span class="uppercase headerLogoPlaceName" >Omiš</span>
                                               <!--<img class="logoImage" src="/images/logoname2.png" alt="Apartment Nature Omiš"/>-->
                 </div>
@@ -55,7 +52,6 @@
                 </ul>
             </div>
         </nav>
-    </div>
 </div>
 <div class="headerPadding"></div>
 

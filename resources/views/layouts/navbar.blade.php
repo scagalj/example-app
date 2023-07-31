@@ -59,26 +59,23 @@
 
     var curLang = "{{ $lang }}";
     $(".changeLang li").click(function () {
-        var lang = $(this).attr('value');
-        var currentUrl = window.location.href;
-
-        // Split the current URL by the "#" symbol to separate the anchor tag, if it exists
-        var urlParts = currentUrl.split('#');
-        var baseUrl = urlParts[0]; // This will contain the URL without the anchor tag
-        var anchorTag = urlParts[1]; // This will contain the anchor tag if it exists
-
-        // Replace the current language in the URL with the selected language
-        if (baseUrl.includes('/' + curLang)) {
-            var newBaseUrl = baseUrl.replace('/' + curLang, '/' + lang);
-        } else {
-            var newBaseUrl = baseUrl + '/' + lang;
-        }
-
-        // Concatenate the new base URL with the anchor tag (if it exists)
-        var newUrl = anchorTag ? newBaseUrl + '#' + anchorTag : newBaseUrl;
-
-        // Update the window location
-        window.location.href = newUrl;
-    });
+    var lang = $(this).attr('value');
+    var currentUrl = window.location.href;
+    var anchor = window.location.hash; // Extract the anchor part of the URL
+    
+    // Remove the anchor from the current URL
+    var urlWithoutAnchor = currentUrl.replace(anchor, '');
+    
+    if (urlWithoutAnchor.includes('/' + curLang)) {
+        var newurl = urlWithoutAnchor.replace('/' + curLang, '/' + lang);
+    } else {
+        var newurl = urlWithoutAnchor + lang;
+    }
+    
+    // Append the anchor back to the new URL
+    var newurlWithAnchor = newurl + anchor;
+    
+    window.location.href = newurlWithAnchor;
+});
 
 </script>
